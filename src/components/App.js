@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios"
+import SearchBox from "./SearchBox";
 
 const App = ()=>{
 //declare variables
@@ -11,7 +12,7 @@ const [info , setInfo] = useState({
     type : '',
     poster : ''
 });
-
+console.log(info);
 const handleSubmit = ()=>{
     axios.get(`http://www.omdbapi.com/?apikey=6749959a&s=${info.title}&type=${info.type}&y=${info.year}`)
     .then((response) => {
@@ -29,11 +30,12 @@ const handleSubmit = ()=>{
 }
     return(
         <div>
-
-            <button
-                onClick={handleSubmit}
-            >search</button>
+            <SearchBox
+                setInfo = {setInfo}
+                searchItem = {handleSubmit}
+            />            
         </div>
     );
 }
+
 export default App;
