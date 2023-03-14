@@ -1,26 +1,23 @@
-// import { useGlobalContext } from "./App";
-const SearchBox = ({searchItem , setInfo}) =>{
-    // const {setInfo} = useGlobalContext();
+const SearchBox = ({handleSubmit , setInfo , info}) =>{
     return(
         <div>
             <form 
-                onSubmit={()=>{searchItem()}}
-                action="">
+                onSubmit={()=>handleSubmit}
+                >
                 <input 
                     type="text"
                     placeholder='Title'
-                    onChange={event => {setInfo({title : event.target.value})}}
+                    onChange={event => {setInfo({...info , title :event.target.value})}}
                 />
-               
                 <input 
                     type="text"
                     placeholder='Year'
-                    onChange={event => setInfo({year : event.target.value})}
+                    onChange={event => setInfo({...info ,year : event.target.value})}
                 />
                 <input 
                     type="text"
                     placeholder='Type'
-                    onChange={event => setInfo({type : event.target.value})}
+                    onChange={event => setInfo({...info , type : event.target.value})}
                 />
                 <button>
                     search
