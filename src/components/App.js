@@ -1,4 +1,5 @@
-import useState from 'react';
+import React from "react";
+import { useState } from "react";
 import axios from "axios"
 
 const App = ()=>{
@@ -28,9 +29,9 @@ const handleSubmit = ()=>{
 }
     return(
         <div>
-            
+
             <button
-            onClick={handleSubmit}
+                onClick={handleSubmit}
             >search</button>
         </div>
     );
