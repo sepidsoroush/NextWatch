@@ -4,6 +4,7 @@ import axios from "axios"
 import SearchBox from "./SearchBox";
 import MoviesList from "./MovieList";
 import { AppContext } from "@/components/context";
+import styles from '../styles/App.module.css'
 
 const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);
@@ -25,10 +26,13 @@ const App = ()=>{
         getData();
     } , []);
     return(
-        <AppContext.Provider value={{searchedMovies , input , setInput , getData}}>
-            <SearchBox />
-            <MoviesList />
-        </AppContext.Provider>
+        <div className={styles.container}>
+            <AppContext.Provider 
+            value={{searchedMovies , input , setInput , getData}} >
+                <SearchBox />
+                <MoviesList />
+            </AppContext.Provider>
+        </div>
     );
 }
 
