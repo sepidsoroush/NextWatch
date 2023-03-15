@@ -1,28 +1,30 @@
-const SearchBox = ({handleSubmit , setInfo , info}) =>{
+import { AppContext } from '@/pages/context';
+import {useContext} from 'react';
+
+const SearchBox = () =>{
+    const {input , setInput , getData} = useContext(AppContext);
     return(
         <div>
-            <form 
-                onSubmit={()=>handleSubmit}
-                >
-                <input 
-                    type="text"
-                    placeholder='Title'
-                    onChange={event => {setInfo({...info , title :event.target.value})}}
-                />
-                <input 
-                    type="text"
-                    placeholder='Year'
-                    onChange={event => setInfo({...info ,year : event.target.value})}
-                />
-                <input 
-                    type="text"
-                    placeholder='Type'
-                    onChange={event => setInfo({...info , type : event.target.value})}
-                />
-                <button>
-                    search
-                </button>
-            </form>
+            <input 
+                type="text"
+                placeholder='Title'
+                onChange={event => {setInput({...input , title :event.target.value})}}
+            />
+            <input 
+                type="text"
+                placeholder='Year'
+                onChange={event => setInput({...input ,year : event.target.value})}
+            />
+            <input 
+                type="text"
+                placeholder='Type'
+                onChange={event => setInput({...input , type : event.target.value})}
+            />
+            <button
+                onClick={()=> getData()}
+            >
+                Search
+            </button>
         </div>
     );
 }

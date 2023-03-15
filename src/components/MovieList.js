@@ -7,16 +7,19 @@ const MoviesList = () =>{
         <div>
             <h1>movie list</h1>
             {searchedMovies.map((item)=>{
-                const {imdbID,Title ,Year,Type,Poster} = item;
+                const {
+                    imdbID : id ,
+                    Title : title ,
+                    Year : year ,
+                    Type : type ,
+                    Poster : poster} = item;
                 return(
-                    <ul>
-                        <li key={imdbID}>
-                            <p>{Title}</p>
-                            <p>{Year}</p>
-                            <p>{Type}</p>
-                            <img src={Poster} alt={Title} />
-                        </li>
-                    </ul>
+                    <article key={id}>
+                        <p>{title}</p>
+                        <p>{year}</p>
+                        <p>{type}</p>
+                        <img src={poster} alt={title} />
+                    </article>
                 )        
             })}
         </div>

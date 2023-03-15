@@ -1,7 +1,7 @@
 import React from "react";
 import { useState , useEffect} from "react";
 import axios from "axios"
-// import SearchBox from "./SearchBox";
+import SearchBox from "./SearchBox";
 import MoviesList from "./MovieList";
 import { AppContext } from "@/pages/context";
 
@@ -12,36 +12,24 @@ const App = ()=>{
         year : '',
         type : ''});
     
-    const getData = async()=>{
-        await axios
+    const getData = ()=>{
+        axios
             .get(`http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${input.type}&y=${input.year}`)
             .then((response) => {
                 setSearchedMovies(response.data.Search);
-                console.log(searchedMovies);
             })
             .catch((error) => {
                 console.log(error)});
-    } 
+    }; 
     useEffect(()=>{
         getData();
     } , []);
-
+    console.log(input);
     return(
-        <AppContext.Provider value={{searchedMovies}}>
+        <AppContext.Provider value={{searchedMovies , input , setInput , getData}}>
+            <SearchBox />
             <MoviesList />
         </AppContext.Provider>
-        // <div>
-        //     <button
-        //     onClick={handleSubmit}>
-        //         search
-        //     </button>
-        //     <MoviesList />
-        //     <SearchBox
-        //         info={info}
-        //         setInfo = {setInfo}
-        //         handleSubmit = {handleSubmit}
-        //     />            
-        // </div>
     );
 }
 
