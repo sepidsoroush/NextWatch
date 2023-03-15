@@ -3,7 +3,7 @@ import { useState , useEffect} from "react";
 import axios from "axios"
 import SearchBox from "./SearchBox";
 import MoviesList from "./MovieList";
-import { AppContext } from "@/pages/context";
+import { AppContext } from "@/components/context";
 
 const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);

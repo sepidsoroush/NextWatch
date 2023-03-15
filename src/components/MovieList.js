@@ -1,5 +1,6 @@
-import { AppContext } from '@/pages/context';
-import {useContext} from 'react';
+import { AppContext } from '@/components/context'
+import {useContext} from 'react'
+import Link from 'next/link'
 
 const MoviesList = () =>{
     const {searchedMovies} = useContext(AppContext);
@@ -14,12 +15,14 @@ const MoviesList = () =>{
                     Type : type ,
                     Poster : poster} = item;
                 return(
-                    <article key={id}>
-                        <p>{title}</p>
-                        <p>{year}</p>
-                        <p>{type}</p>
-                        <img src={poster} alt={title} />
-                    </article>
+                    <Link href={`/${id}`}>
+                        <article key={id}>
+                            <p>{title}</p>
+                            <p>{year}</p>
+                            <p>{type}</p>
+                            <img src={poster} alt={title} />
+                        </article>
+                    </Link>
                 )        
             })}
         </div>

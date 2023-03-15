@@ -1,4 +1,4 @@
-import { AppContext } from '@/pages/context';
+import { AppContext } from '@/components/context';
 import {useContext} from 'react';
 
 const SearchBox = () =>{
