@@ -24,7 +24,6 @@ const App = ()=>{
     useEffect(()=>{
         getData();
     } , []);
-    console.log(input);
     return(
         <AppContext.Provider value={{searchedMovies , input , setInput , getData}}>
             <SearchBox />
