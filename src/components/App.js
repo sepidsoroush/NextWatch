@@ -8,7 +8,7 @@ import { AppContext } from "@/components/context";
 const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);
     const [input , setInput] = useState({
-        title : 'friends',
+        title : ' ',
         year : '',
         type : ''});
     

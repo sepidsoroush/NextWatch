@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import axios from 'axios'
 export default function Movie() {
     const router = useRouter()
@@ -62,6 +63,7 @@ export default function Movie() {
             <div>
                 <p>Awards: {item.Awards}</p>
             </div>
+            <Link href='/'>Back to Home Page</Link>
         </div>
     )
 }

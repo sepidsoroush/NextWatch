@@ -6,8 +6,8 @@ const MoviesList = () =>{
     const {searchedMovies} = useContext(AppContext);
     return(
         <div>
-            <h1>movie list</h1>
-            {searchedMovies.map((item)=>{
+            {searchedMovies? <h1>movie list</h1> : null}
+            {searchedMovies? searchedMovies.map((item)=>{
                 const {
                     imdbID : id ,
                     Title : title ,
@@ -24,7 +24,7 @@ const MoviesList = () =>{
                         </article>
                     </Link>
                 )        
-            })}
+            }):null}
         </div>
     );
 }
