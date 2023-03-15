@@ -1,26 +1,33 @@
 import { AppContext } from '@/components/context';
 import {useContext} from 'react';
 import styles from '../styles/Search.module.css'
+import { FaSearch } from "react-icons/fa";
+
 
 const SearchBox = () =>{
     const {input , setInput , getData} = useContext(AppContext);
     return(
         <div className={styles.searchBox}>
-            <select onChange={(event)=>{setInput({...input , type :event.target.value})}}>
+            <select 
+                onChange={(event)=>{setInput({...input , type :event.target.value})}}
+                className={styles.type}>
                 <option value="">All</option>
                 <option value="movie">Movie</option>
                 <option value="series">TV Series</option>
                 <option value="episode">Episode</option>
             </select>
             <input 
+                className={styles.input}
                 type="text"
                 placeholder='Search'
-                onChange={event => setInput({...input , title : event.target.value})}
+                required
+                onChange={(event) => setInput({...input , title : event.target.value})}
             />
             <button
+                className={styles.button}
                 onClick={()=> getData()}
             >
-                Search
+                <FaSearch style={{height : '100%'}} />
             </button>
         </div>
     );

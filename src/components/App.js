@@ -9,7 +9,7 @@ import styles from '../styles/App.module.css'
 const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);
     const [input , setInput] = useState({
-        title : ' ',
+        title : '',
         type : ''});
     
     const getData = ()=>{
