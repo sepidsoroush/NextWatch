@@ -10,12 +10,11 @@ const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);
     const [input , setInput] = useState({
         title : ' ',
-        year : '',
         type : ''});
     
     const getData = ()=>{
         axios
-            .get(`http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${input.type}&y=${input.year}`)
+            .get(`http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${input.type}`)
             .then((response) => {
                 setSearchedMovies(response.data.Search);
             })

@@ -1,24 +1,21 @@
 import { AppContext } from '@/components/context';
 import {useContext} from 'react';
+import styles from '../styles/Search.module.css'
 
 const SearchBox = () =>{
     const {input , setInput , getData} = useContext(AppContext);
     return(
-        <div>
+        <div className={styles.searchBox}>
+            <select onChange={(event)=>{setInput({...input , type :event.target.value})}}>
+                <option value="">All</option>
+                <option value="movie">Movie</option>
+                <option value="series">TV Series</option>
+                <option value="episode">Episode</option>
+            </select>
             <input 
                 type="text"
-                placeholder='Title'
-                onChange={event => {setInput({...input , title :event.target.value})}}
-            />
-            <input 
-                type="text"
-                placeholder='Year'
-                onChange={event => setInput({...input ,year : event.target.value})}
-            />
-            <input 
-                type="text"
-                placeholder='Type'
-                onChange={event => setInput({...input , type : event.target.value})}
+                placeholder='Search'
+                onChange={event => setInput({...input , title : event.target.value})}
             />
             <button
                 onClick={()=> getData()}
