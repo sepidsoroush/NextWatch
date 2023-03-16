@@ -3,7 +3,7 @@ import { useState , useEffect} from "react";
 import axios from "axios"
 import SearchBox from "./SearchBox";
 import MoviesList from "./MovieList";
-import Alert from './Alert'
+import Alert from './Error'
 import { AppContext } from "@/components/context";
 import styles from '../styles/App.module.css'
 
