@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.header{
+    color: white;
+    margin: 10px 0 20px 0;
+}
+.movie{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    border-bottom: 1px solid gray;
+    margin: 1px 0;
+    padding: 2px 0 4px 0;
+    min-width: 680px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.poster{
+    height: 120px;
+    width: 81px;
+}
+.movie:hover .title{
+    color: gray;
+}
+.title{
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+.detail{
+    margin: 2px 0;
+    font-size: 14px;
+    color: gray;
+}
