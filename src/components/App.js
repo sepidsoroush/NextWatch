@@ -24,10 +24,16 @@ const App = ()=>{
     useEffect(()=>{
         getData();
     } , []);
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key
+        if (e.keyCode === 13) {
+            getData();
+        }
+    };
     return(
         <div className={styles.container}>
             <AppContext.Provider 
-            value={{searchedMovies , input , setInput , getData}} >
+            value={{searchedMovies , input , setInput , getData , handleKeypress}} >
                 <SearchBox />
                 <MoviesList />
             </AppContext.Provider>

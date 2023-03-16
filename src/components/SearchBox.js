@@ -3,9 +3,8 @@ import {useContext} from 'react';
 import styles from '../styles/Search.module.css'
 import { FaSearch } from "react-icons/fa";
 
-
 const SearchBox = () =>{
-    const {input , setInput , getData} = useContext(AppContext);
+    const {input , setInput , getData , handleKeypress} = useContext(AppContext);
     return(
         <div className={styles.searchBox}>
             <select 
@@ -22,6 +21,7 @@ const SearchBox = () =>{
                 placeholder='Search'
                 required
                 onChange={(event) => setInput({...input , title : event.target.value})}
+                onKeyDown={handleKeypress} 
             />
             <button
                 className={styles.button}
