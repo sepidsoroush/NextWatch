@@ -13,6 +13,7 @@ const App = ()=>{
         title : 'Batman',
         type : ''});
     const [error , setError] = useState('')
+    const [results , setResults] = useState('')
 
     const getData = ()=>{
         axios
@@ -20,6 +21,7 @@ const App = ()=>{
             .then((response) => {
                 setSearchedMovies(response.data.Search);
                 setError(response.data.Error)
+                setResults(response.data.totalResults)
                 console.log(response)
             })
             .catch((error) => {
@@ -34,11 +36,11 @@ const App = ()=>{
             getData();
         }
     };
-    console.log(error)
+    // console.log(results)
     return(
         <div className={styles.container}>
             <AppContext.Provider 
-            value={{searchedMovies , input , setInput , getData , handleKeypress , error}} >
+            value={{searchedMovies , input , setInput , getData , handleKeypress , error , results}} >
                 <SearchBox />
                 <Alert />
                 <MoviesList />
