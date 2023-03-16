@@ -14,6 +14,7 @@ const SearchBox = () =>{
                 <option value="movie">Movie</option>
                 <option value="series">TV Series</option>
                 <option value="episode">Episode</option>
+                <option value="game">Game</option>
             </select>
             <input 
                 className={styles.input}
