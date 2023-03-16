@@ -1,10 +1,10 @@
 .searchBox{
     margin: 20px auto ;
-    border:0;
     display: flex;
     border: 1px solid transparent;
     background-color: #3b3b3b;
     border-radius: 5px;
+    min-height: max-content;
 }
 .searchBox:focus-within{
     border: 1px solid #f5c518;
@@ -12,23 +12,32 @@
 
 .type{
     border: 0;
-    margin: 0;
+    margin: 0 ;
     padding: 5px;
-    border-right: 1px solid gray;
     background-color: #3b3b3b;
     border-radius: 5px 0 0 5px;
+    color: gray;
 }
 .type:focus{
     outline: 0;
+
+}
+.type:hover{
+    color: #f5c518;
+
 }
 .input{
     border:0;
-    padding: 5px;
-    width: 100%;
+    border-left: 1px solid gray;
+    margin: 5px 5px 5px 10px;
+    padding: 5px 10px;
+    min-width: 200px;
     background-color: #3b3b3b;
+    color: gray;
 }
 .input:focus{
     outline: 0;
+    color: #f5c518;
 }
 .button{
     position: relative;
@@ -38,6 +47,8 @@
     cursor: pointer;
     background-color: transparent;
     font-size: larger;
+    color: gray;
+
 }
 .button:hover{
     color: #f5c518;
