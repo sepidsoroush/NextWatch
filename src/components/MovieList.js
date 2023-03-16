@@ -1,7 +1,7 @@
 import { AppContext } from '@/components/context'
 import {useContext} from 'react'
 import Link from 'next/link'
-import styles from '../styles/MovieList.module.css'
+import styles from '../styles/List.module.css'
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 

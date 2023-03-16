@@ -2,15 +2,21 @@ import {useRouter} from 'next/router'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
+import styles from '../styles/Movie.module.css'
+import { FaArrowLeft , FaAward , FaStar , FaFilm } from "react-icons/fa"
+
 export default function Movie() {
+    // declare varibles
     const router = useRouter()
     const {id} = router.query
     const [item , setItem] = useState({})
-    let x = {
-        Awards: "",
-        Ratings :[],
-        totalSeasons: ""
-    }
+    const [showCredits , setShowCredits] = useState(false);
+    const [showAwards , setShowAwards] = useState(false);
+    const [showRatings , setShowRatings] = useState(false);
+
+
 
     const findMovie = ()=>{
         axios
@@ -25,45 +31,82 @@ export default function Movie() {
         findMovie();
     } , []);
     return (
-        <div>
-            <div>
-                <h1>{item.Title}</h1>
-                <p>{item.Type} • {item.Year} • {item.Rated} • {item.Runtime}</p>
-            </div>
-            <div>
-                <img src={item.Poster} alt={item.Title} />
-            </div>
-            <div>
-                {item.Genre ? item.Genre.split(', ').map((element)=>{
-                    return(
-                        <p>{element}</p>
-                    )
-                }) : null}
-            </div>
-            <div>
-                <p>{item.Plot}</p>
-            </div>
-            <div>
-                <p>IMDB rate: <span>{item.imdbRating}</span>/<span>{item.imdbVotes}</span></p>
-                <p>Metascore: <span>{item.Metascore}</span></p>
-                <div>
-                {item.Ratings? item.Ratings.map((element)=>{
-                    return(
-                        <p>{element.Source}: <span>{element.Value}</span></p>
-                    )
-                }): null}
+        <div className={`${styles.body} ${inter.className}`}>
+            <div className={styles.container}>
+                <div className={styles.main}>
+                    <div>
+                        <img 
+                        className={styles.poster}
+                        src={item.Poster} 
+                        alt={item.Title} />
+                    </div>
+                    <div className={styles.right}>
+                        <div className={styles.header}>
+                            <h1 className={styles.title}>{item.Title}</h1>
+                            <p className={styles.headerInfo}>{item.Type} • {item.Year} • {item.Rated} • {item.Runtime}</p>
+                        </div>
+                        <div>
+                            {item.Genre ? item.Genre.split(', ').map((element)=>{
+                                return(
+                                    <span className={styles.genre}>{element}</span>
+                                )
+                            }) : null}
+                        </div>
+                        <div>
+                            <p className={styles.plot}>{item.Plot}</p>
+                        </div>
+                        <div
+                            className={styles.infoContainer}
+                            onClick={()=>(setShowCredits(!showCredits))}>
+                            <p className={styles.infoTitle}>
+                                <FaFilm  className={styles.icon}/>
+                                Top credits
+                            </p>
+                            {showCredits ? 
+                            <div 
+                            className={styles.infoDetails}>
+                                <p>Actors: <span>{item.Actors}</span></p>
+                                <p>Writer: <span>{item.Writer}</span></p>
+                                <p>Director: <span>{item.Director}</span></p>
+                            </div> : null}
+                            
+                        </div>
+                        <div 
+                            className={styles.infoContainer}
+                            onClick={()=>(setShowAwards(!showAwards))}>
+                            <p className={styles.infoTitle}>
+                                <FaAward className={styles.icon} />Awards
+                            </p>
+                        {showAwards? 
+                        <div className={styles.infoDetails}>
+                            <p>{item.Awards}</p>
+                            </div> : null}
+                        </div>
+                        <div
+                            className={styles.infoContainer}
+                            onClick={()=>(setShowRatings(!showRatings))}>
+                            <p className={styles.infoTitle}>
+                                <FaStar className={styles.icon} />Ratings
+                            </p>
+                            {showRatings? 
+                            <div className={styles.infoDetails}>
+                            {item.Ratings? item.Ratings.map((element)=>{
+                                return(
+                                    <p>{element.Source}: <span>{element.Value}</span></p>
+                                )
+                            }): null}
+                            </div> : null}
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.backContainer}>
+                    <Link 
+                        className={styles.backButton}
+                        href='/'>
+                        <FaArrowLeft className={styles.icon} /><p>Back</p>
+                    </Link>
                 </div>
             </div>
-            <div>
-                <p>Top credits</p>
-                <p>Actors: <span>{item.Actors}</span></p>
-                <p>Writer: <span>{item.Writer}</span></p>
-                <p>Director: <span>{item.Director}</span></p>
-            </div>
-            <div>
-                <p>Awards: {item.Awards}</p>
-            </div>
-            <Link href='/'>Back to Home Page</Link>
         </div>
     )
 }
