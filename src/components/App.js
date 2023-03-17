@@ -12,18 +12,19 @@ const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);
     const [input , setInput] = useState({
         title : 'Batman',
-        type : ''});
+        type : '',
+        page : '1'});
     const [error , setError] = useState('')
     const [results , setResults] = useState('')
 
     const getData = ()=>{
         axios
-            .get(`http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${input.type}`)
+            .get(`http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${input.type}&page=${input.page}`)
             .then((response) => {
                 setSearchedMovies(response.data.Search);
                 setError(response.data.Error)
                 setResults(response.data.totalResults)
-                console.log(response)
+                // console.log(response)
             })
             .catch((error) => {
                 console.log(error)});
