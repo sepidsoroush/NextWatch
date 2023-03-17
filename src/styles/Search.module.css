@@ -1,8 +1,7 @@
 .searchBox{
     margin: 20px auto ;
     display: flex;
-    border: 1px solid transparent;
-    background-color: #3b3b3b;
+    border: 1px solid gray;;
     border-radius: 5px;
     min-height: max-content;
 }
@@ -14,7 +13,6 @@
     border: 0;
     margin: 0 ;
     padding: 5px;
-    background-color: #3b3b3b;
     border-radius: 5px 0 0 5px;
     color: gray;
 }
@@ -32,8 +30,6 @@
     margin: 5px 5px 5px 10px;
     padding: 5px 10px;
     min-width: 200px;
-    background-color: #3b3b3b;
-    color: gray;
 }
 .input:focus{
     outline: 0;
