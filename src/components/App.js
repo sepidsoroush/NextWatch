@@ -31,14 +31,14 @@ const App = ()=>{
     }; 
     useEffect(()=>{
         getData();
-    } , []);
+    } , [input]);
     const handleKeypress = e => {
         //it triggers by pressing the enter key
         if (e.keyCode === 13) {
             getData();
         }
     };
-    // console.log(results)
+    console.log(input)
     return(
         <div className={styles.container}>
             <AppContext.Provider 

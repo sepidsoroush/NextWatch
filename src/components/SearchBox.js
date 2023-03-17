@@ -21,12 +21,12 @@ const SearchBox = () =>{
                 type="text"
                 placeholder='Search'
                 required
-                onChange={(event) => setInput({...input , title : event.target.value})}
+                onChange={(event) => setInput({...input , title : event.target.value, page : '1'})}
                 onKeyDown={handleKeypress} 
             />
             <button
                 className={styles.button}
-                onClick={()=> getData()}
+                onClick={()=> {getData(); setInput({...input , page : '1'})}}
             >
                 <FaSearch style={{height : '100%'}} />
             </button>
