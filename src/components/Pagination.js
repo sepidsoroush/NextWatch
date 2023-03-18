@@ -7,7 +7,9 @@ const Pagination = () =>{
     const totalPages = Math.ceil(results/10)
     let nextPage ;
     let prevPage ;
-    // const [startNum , setStartNum] = useState(0);
+    const minLimit = 1 ;
+    const maxLimit = 10 ;
+    // build page numbers list based on total number of pages
     let pages = [];
     for (let i=1 ; i< totalPages+1 ; i++){
         pages.push(i)
@@ -20,13 +22,7 @@ const Pagination = () =>{
                 prevPage = 1 ;
             }
             return({...input , page : prevPage})
-        })
-        // setStartNum(()=>{
-        //     if(startNum <=5){
-        //         return 0;
-        //     }
-        //     return (startNum-1)
-        // })        
+        })       
     }
 
     function handleNextPage() {
@@ -37,22 +33,12 @@ const Pagination = () =>{
             }
             return ({...input , page :nextPage})
         })
-        // setStartNum(()=>{
-        //     if(startNum >5 && startNum+4 > totalPages){
-        //         return totalPages;
-        //     }else if (startNum <=5){
-        //         return (startNum)
-        //     }
-        //     return (startNum+1)
-        // }) 
-    }
-    // let newArray = numberList.slice(startNum , startNum+10);
-    
+    }    
     const pageNumbers = pages.map(item =>{
-        if (item <= totalPages && item > 0){
+        if (item <= maxLimit && item >= minLimit){
             return (
                 <button 
-                className={currentPage === item? 'active' : null}
+                // className={currentPage === item? 'active' : null}
                 key={item} 
                 value={item}
                 onClick={(event) => setInput({...input , page : event.target.value})}>
@@ -63,10 +49,24 @@ const Pagination = () =>{
             return null ;
         }
     })
+
+    // page ellipsis
+    let incrementEllipsis = null;
+    if(pages.length > maxLimit){
+        incrementEllipsis = <button onClick={handleNextPage}>&hellip;</button>
+    }
+    let decrementEllipsis = null;
+    if(minLimit > 1){
+        decrementEllipsis = <button onClick={handlePrevPage}>&hellip;</button>
+    }
+
+
     return (
         <div>
             <button onClick={handlePrevPage}>Prev</button>
+            {decrementEllipsis}
             {pageNumbers}
+            {incrementEllipsis}
             {/* {pages.map((number , index)=>{
                 return(
                     <button 
