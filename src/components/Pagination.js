@@ -5,6 +5,8 @@ const Pagination = () =>{
     const {results , input , setInput} = useContext(AppContext)
     const totalPages = Math.ceil(results/10)
     let numberList = [];
+    let nextPage ;
+    let prevPage ;
     let currentPage = parseInt(input.page);
     for (let i=1 ; i< totalPages+1 ; i++){
         numberList.push(i)
@@ -12,29 +14,31 @@ const Pagination = () =>{
 
     const [pages , setPages] = useState(currentPage)
 
-    const prevPage = () =>{
+    const handlePrevPage = () =>{
         setPages((currentPage)=>{
-            let prevPage = currentPage - 1;
+            prevPage = currentPage - 1;
             if(prevPage <= 0){
                 prevPage = 1 ;
             }
             return(prevPage)
         })
+        setInput({...input , page : prevPage})
     }
 
-    function nextPage() {
+    function handleNextPage() {
         setPages((currentPage)=>{
-            let nextPage = currentPage + 1 
+            nextPage = currentPage + 1 
             if( nextPage > totalPages){
                 nextPage = totalPages;
             }
             return (nextPage)
         })
+        setInput({...input , page :nextPage})
     }
     console.log(pages)
     return (
         <div>
-            <button onClick={prevPage}>Prev</button>
+            <button onClick={handlePrevPage}>Prev</button>
             {numberList.map((number , index)=>{
                 return(
                     <button 
@@ -45,7 +49,7 @@ const Pagination = () =>{
                     </button>
                 )
             })}
-            <button onClick={nextPage}>Next</button>
+            <button onClick={handleNextPage}>Next</button>
         </div>
     )
     
