@@ -3,39 +3,36 @@ import {useContext, useState} from 'react'
 
 const Pagination = () =>{
     const {results , input , setInput} = useContext(AppContext)
+    // let currentPage = parseInt(input.page);
     const totalPages = Math.ceil(results/10)
-    let numberList = [];
     let nextPage ;
     let prevPage ;
-    let currentPage = parseInt(input.page);
+    let numberList = [];
     for (let i=1 ; i< totalPages+1 ; i++){
         numberList.push(i)
     }
 
-    const [pages , setPages] = useState(currentPage)
-
     const handlePrevPage = () =>{
-        setPages((currentPage)=>{
-            prevPage = currentPage - 1;
+        setInput(()=>{
+            prevPage = parseInt(input.page) - 1;
             if(prevPage <= 0){
                 prevPage = 1 ;
             }
-            return(prevPage)
+            return({...input , page : prevPage})
         })
-        setInput({...input , page : prevPage})
     }
 
     function handleNextPage() {
-        setPages((currentPage)=>{
-            nextPage = currentPage + 1 
+        setInput(()=>{
+            nextPage = parseInt(input.page) + 1 
             if( nextPage > totalPages){
                 nextPage = totalPages;
             }
-            return (nextPage)
+            return ({...input , page :nextPage})
         })
-        setInput({...input , page :nextPage})
     }
-    console.log(pages)
+
+    console.log(numberList)
     return (
         <div>
             <button onClick={handlePrevPage}>Prev</button>
