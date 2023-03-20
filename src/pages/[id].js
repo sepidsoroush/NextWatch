@@ -15,7 +15,7 @@ export default function Movie() {
     const [showCredits , setShowCredits] = useState(false);
     const [showAwards , setShowAwards] = useState(false);
     const [showRatings , setShowRatings] = useState(false);
-
+    const url ='https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
 
 
     const findMovie = ()=>{
@@ -36,8 +36,8 @@ export default function Movie() {
                 <div className={styles.main}>
                     <div>
                         <img 
-                        className={styles.poster}
-                        src={item.Poster} 
+                        style={item.Poster === 'N/A' ?{width:'240px' , height:'320px'}:null}
+                        src={item.Poster === 'N/A' ? url : item.Poster} 
                         alt={item.Title} />
                     </div>
                     <div className={styles.right}>

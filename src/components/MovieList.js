@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 const MoviesList = () =>{
+    const url ='https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
     const {searchedMovies} = useContext(AppContext);
     return(
         <div className={styles.container}>
@@ -23,7 +24,7 @@ const MoviesList = () =>{
                             <div 
                             key={id}
                             className={styles.movie}>
-                                <img src={poster} alt={title} className={styles.poster} />
+                                <img src={poster === 'N/A' ? url : poster} alt={title} className={styles.poster} />
                                 <div className={styles.info}>
                                     <p className={styles.title}>{title}</p>
                                     <p className={styles.detail}>{year}</p>
