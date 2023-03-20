@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+.button{
+    height: 24px;
+    background-color: transparent;
+    border: 1px solid gray;
+    margin: 0 1px;
+    cursor: pointer;
+}
+.numbers{
+    width: 24px;
+    font-size: 12px;
+
+}
+.button:hover{
+    color: #f5c518;
+    border: 1px solid #f5c518;;
+}
+.button:active{
+    transform: scale(0.9);
+}
+.active{
+    background-color: gray;
+}
+.ellipsis{
+    border: 0;
+    font-weight: bold;
+    margin: 0 2px;
+    padding: 0 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.ellipsis:hover{
+    color: #f5c518;
+    transform: scale(1.1);
+
+}
+.controller{
+    padding: 0 5px;
+
+}

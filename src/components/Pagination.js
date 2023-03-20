@@ -1,5 +1,6 @@
 import { AppContext } from '@/components/context'
-import {useContext, useEffect, useState} from 'react'
+import {useContext, useState} from 'react'
+import styles from '../styles/Pagination.module.css'
 
 const Pagination = () =>{
     const {results , input , setInput} = useContext(AppContext)
@@ -15,7 +16,6 @@ const Pagination = () =>{
     }
 
     const handlePrevPage = () =>{
-
         if (parseInt(input.page)!==2 && 
         (parseInt(input.page) -1)%pagesLimit ===1){
         setMaxLimit(maxLimit -pagesLimit) ;
@@ -31,7 +31,6 @@ const Pagination = () =>{
     }
 
     const handleNextPage = () => {
-
         if ((parseInt(input.page) +1)%pagesLimit ===1){
             setMaxLimit(maxLimit +pagesLimit) ;
             setMinLimit(minLimit +pagesLimit) ;
@@ -45,13 +44,17 @@ const Pagination = () =>{
         })
     }
     
-
-    
     const pageNumbers = pages.map(number =>{
         if (number <= maxLimit && number > minLimit){
             return (
                 <button 
-                // className={currentPage === number? 'active' : null}
+                className={`${styles.button} ${styles.numbers}`}
+                style={
+                    (parseInt(input.page) == number) ?{
+                        backgroundColor :  '#f5c518' ,
+                        color : 'white' ,
+                        border : '1px solid #f5c518'}
+                   : null}
                 key={number} 
                 value={number}
                 onClick={(event) => setInput({...input , page : Number(event.target.value)})}>
@@ -66,28 +69,34 @@ const Pagination = () =>{
     // page ellipsis
     let incrementEllipsis = null;
     if(pages.length > maxLimit){
-        incrementEllipsis = <button onClick={()=>{
+        incrementEllipsis = <button 
+        className={styles.ellipsis}
+        onClick={()=>{
             setMaxLimit(maxLimit +pagesLimit);
             setMinLimit(minLimit +pagesLimit);
         }}>&hellip;</button>
     }
     let decrementEllipsis = null;
     if(minLimit > 1){
-        decrementEllipsis = <button onClick={()=>{
+        decrementEllipsis = <button 
+        className={styles.ellipsis}
+        onClick={()=>{
             setMaxLimit(maxLimit -pagesLimit);
             setMinLimit(minLimit -pagesLimit);
         }}>&hellip;</button>
     }
 
-    console.log(minLimit , maxLimit , input.page)
-
     return (
-        <div>
-            <button onClick={handlePrevPage}>Prev</button>
-            {decrementEllipsis}
-            {pageNumbers}
-            {incrementEllipsis}
-            <button onClick={handleNextPage}>Next</button>
+        <div className={styles.container}>
+            <button 
+                className={`${styles.controller} ${styles.button}`}
+                onClick={handlePrevPage}>&lt;&lt;</button>
+                {decrementEllipsis}
+                {pageNumbers}
+                {incrementEllipsis}
+            <button 
+                className={`${styles.controller} ${styles.button}`}
+                onClick={handleNextPage}>&gt;&gt;</button>
         </div>
     )
     
