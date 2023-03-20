@@ -13,7 +13,7 @@ const App = ()=>{
     const [input , setInput] = useState({
         title : 'Batman',
         type : '',
-        page : '1'});
+        page : 1});
     const [error , setError] = useState('')
     const [results , setResults] = useState('')
 
