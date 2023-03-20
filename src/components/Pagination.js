@@ -17,7 +17,7 @@ const Pagination = () =>{
 
     const handlePrevPage = () =>{
         if (parseInt(input.page)!==2 && 
-        (parseInt(input.page) -1)%pagesLimit ===1){
+        (parseInt(input.page) -1)%pagesLimit ===0){
         setMaxLimit(maxLimit -pagesLimit) ;
         setMinLimit(minLimit -pagesLimit) ;
         }
