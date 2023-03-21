@@ -2,6 +2,7 @@ import { AppContext } from '@/components/context'
 import {useContext} from 'react'
 import Link from 'next/link'
 import styles from '../styles/List.module.css'
+import WatchList from './WatchList'
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,7 +30,7 @@ const MoviesList = () =>{
                                     <p className={styles.title}>{title}</p>
                                     <p className={styles.detail}>{year}</p>
                                     <p className={styles.detail}>{type}</p>
-                                </div>                           
+                                </div>                   <WatchList />        
                             </div>
                         </Link>
                     </div>
