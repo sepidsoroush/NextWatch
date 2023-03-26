@@ -5,7 +5,7 @@ import SearchBox from "./SearchBox";
 import MoviesList from "./MovieList";
 import Alert from './Error'
 import Pagination from "./Pagination";
-import { AppContext } from "@/components/context";
+import { AppContext } from "@/context/AppContext";
 import styles from '../styles/App.module.css'
 
 const App = ()=>{

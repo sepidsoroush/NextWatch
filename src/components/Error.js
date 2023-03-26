@@ -1,4 +1,4 @@
-import { AppContext } from '@/components/context'
+import { AppContext } from '@/context/AppContext'
 import {useContext} from 'react'
 import styles from '../styles/Error.module.css'
 import { Inter } from 'next/font/google'

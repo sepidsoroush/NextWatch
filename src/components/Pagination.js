@@ -1,4 +1,4 @@
-import { AppContext } from '@/components/context'
+import { AppContext } from '@/context/AppContext'
 import {useContext, useState} from 'react'
 import styles from '../styles/Pagination.module.css'
 

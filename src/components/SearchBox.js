@@ -1,4 +1,4 @@
-import { AppContext } from '@/components/context';
+import { AppContext } from '@/context/AppContext';
 import {useContext} from 'react';
 import styles from '../styles/Search.module.css'
 import { FaSearch } from "react-icons/fa";
