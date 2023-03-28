@@ -5,6 +5,7 @@ import SearchBox from "./SearchBox";
 import MoviesList from "./MovieList";
 import Alert from './Error'
 import Pagination from "./Pagination";
+import Watchlist from '../pages/Watchlist'
 import { AppContext } from "@/context/AppContext";
 import styles from '../styles/App.module.css'
 
@@ -43,6 +44,7 @@ const App = ()=>{
         <div className={styles.container}>
             <AppContext.Provider 
             value={{searchedMovies , input , setInput , getData , handleKeypress , error , results}} >
+                <Watchlist />
                 <SearchBox />
                 <Alert />
                 <MoviesList />
