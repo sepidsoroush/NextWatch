@@ -4,9 +4,9 @@ import { database} from '../../firebase'
 import { collection , doc , deleteDoc , setDoc , getDoc} from 'firebase/firestore';
 
 
-const Bookmark = ({items}) =>{
-    const [booked , setBooked] = useState(false)
+const Bookmark = ({items , booked}) =>{
     const dbInstance = collection(database, 'watchlist');
+
 
     const checkBookmark = async ()=>{
         const docRef = doc(database, "watchlist", items.imdbID);
@@ -40,7 +40,7 @@ const Bookmark = ({items}) =>{
             onClick={handleBookmark}
             >
                 {booked? <FaBookmark /> : <FaRegBookmark />}
-                <p>{booked?'Remove from Watchlist' : 'Add to Watchlist'}</p>
+                {/* <p>{booked?'Remove from Watchlist' : 'Add to Watchlist'}</p> */}
             </div>
         </div>
     )

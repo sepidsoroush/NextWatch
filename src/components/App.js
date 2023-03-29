@@ -5,9 +5,10 @@ import SearchBox from "./SearchBox";
 import MoviesList from "./MovieList";
 import Alert from './Error'
 import Pagination from "./Pagination";
-import Watchlist from '../pages/Watchlist'
 import { AppContext } from "@/context/AppContext";
 import styles from '../styles/App.module.css'
+import Link from 'next/link'
+
 
 const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);
@@ -39,12 +40,12 @@ const App = ()=>{
             getData();
         }
     };
-    console.log(input)
+    // console.log(input)
     return(
         <div className={styles.container}>
             <AppContext.Provider 
             value={{searchedMovies , input , setInput , getData , handleKeypress , error , results}} >
-                <Watchlist />
+                <Link href='/watchlist'>Watchlist</Link>
                 <SearchBox />
                 <Alert />
                 <MoviesList />
