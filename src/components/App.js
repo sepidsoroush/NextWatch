@@ -7,8 +7,6 @@ import Alert from './Error'
 import Pagination from "./Pagination";
 import { AppContext } from "@/context/AppContext";
 import styles from '../styles/App.module.css'
-import Link from 'next/link'
-
 
 const App = ()=>{
     const [searchedMovies , setSearchedMovies] = useState([]);
@@ -18,6 +16,8 @@ const App = ()=>{
         page : 1});
     const [error , setError] = useState('')
     const [results , setResults] = useState('')
+    const [booked , setBooked] = useState(false);
+
 
     const getData = ()=>{
         axios
@@ -44,8 +44,7 @@ const App = ()=>{
     return(
         <div className={styles.container}>
             <AppContext.Provider 
-            value={{searchedMovies , input , setInput , getData , handleKeypress , error , results}} >
-                <Link href='/watchlist'>Watchlist</Link>
+            value={{searchedMovies , input , setInput , getData , handleKeypress , error , results , booked , setBooked}} >
                 <SearchBox />
                 <Alert />
                 <MoviesList />

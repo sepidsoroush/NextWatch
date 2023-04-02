@@ -1,23 +1,19 @@
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState , useContext } from 'react'
 import { database} from '../../firebase'
-import { collection , doc , deleteDoc , setDoc , getDocs} from 'firebase/firestore';
+import { collection , doc , getDocs , getDoc} from 'firebase/firestore';
 import Link from 'next/link'
-import { async } from '@firebase/util';
 import Bookmark from '@/components/Bookmark';
-
-
+import { AppContext } from '@/context/AppContext'
 
 const Watchlist = () =>{
     const data = [];
     const [list , setList] = useState([])
-    const [booked , setBooked] = useState(false);
-
+    const {booked , setBooked} = useContext(AppContext)
     const getData = async () =>{
         try{
             const querySnapshot =await getDocs(collection(database, "watchlist"));
             querySnapshot.forEach((doc) => {
-                // console.log(doc.data());
                 data.push(doc.data())
                 setList(data)
             });
@@ -25,8 +21,19 @@ const Watchlist = () =>{
             console.log(error);
         }
     }
+    const checkBookmark = async ()=>{
+        const docRef = doc(database, "watchlist", list.id);
+        try {
+            const docSnap = await getDoc(docRef);
+            console.log(docSnap.data());
+            setBooked(true);
+        } catch(error) {
+            console.log(error)
+        }
+    }
     useEffect(()=>{
         getData();
+        checkBookmark();
     },[list])
 
     return (
