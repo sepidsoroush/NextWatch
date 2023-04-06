@@ -6,4 +6,7 @@
 - The components of this app are: main page, Search Box, Alert message, Movie page.
 - These components are disabled temporarily: Bookmark, Watchlist, Authentication.
 - These application was built using React Hooks (useState, useContext, useEffects, ...), API, Axios, firebase, React icons, etc.
-- Light/Dark Theme and Dynamic Routes are supported by next.js.
+- Dark mode with `next-themes`
+- Dynamic Routes with `next-router`
+- Fonts with `@next/font`
+- Icons with [Font Awesome 5](https://fontawesome.com/)
