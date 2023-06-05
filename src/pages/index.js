@@ -15,7 +15,7 @@ export default function Home() {
   });
   const [error, setError] = useState("");
   const [results, setResults] = useState("");
-  const [booked, setBooked] = useState(false);
+  // const [booked, setBooked] = useState(false);
 
   const getData = () => {
     axios
@@ -32,22 +32,47 @@ export default function Home() {
         console.log(error);
       });
   };
+
   useEffect(() => {
     getData();
   }, [input]);
-  const handleKeypress = (e) => {
-    //it triggers by pressing the enter key
-    if (e.keyCode === 13) {
-      getData();
-    }
+
+  // Pagination functions
+  const fetchPrevPage = () => {
+    setInput(() => {
+      let prevPage = parseInt(input.page) - 1;
+      if (prevPage <= 0) {
+        prevPage = 1;
+      }
+      return { ...input, page: prevPage };
+    });
   };
-  // console.log(input)
+  const fetchNextPage = (totalPages) => {
+    setInput(() => {
+      let nextPage = parseInt(input.page) + 1;
+      if (nextPage >= totalPages) {
+        nextPage = totalPages;
+      }
+      return { ...input, page: nextPage };
+    });
+  };
+
+  const changePageHandler = (value) => {
+    setInput({ ...input, page: Number(value) });
+  };
+
   return (
     <div className={styles.container}>
-      <SearchBox />
-      <Alert />
-      <MoviesList />
-      <Pagination />
+      <SearchBox onChooseCategory />
+      <Alert error={error} />
+      <MoviesList searchResult={searchedMovies} />
+      <Pagination
+        results={results}
+        input={input}
+        onPrevPage={fetchPrevPage}
+        onNextPage={fetchNextPage}
+        onChangePage={changePageHandler}
+      />
     </div>
   );
 }

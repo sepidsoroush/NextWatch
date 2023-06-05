@@ -1,12 +1,10 @@
-import { AppContext } from "@/context/app-context";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styles from "@/styles/Pagination.module.css";
 
-const Pagination = () => {
-  const { results, input, setInput } = useContext(AppContext);
-  const totalPages = Math.ceil(results / 10);
+const Pagination = (props) => {
+  const totalPages = Math.ceil(props.results / 10);
   const [minLimit, setMinLimit] = useState(0);
-  let [maxLimit, setMaxLimit] = useState(10);
+  const [maxLimit, setMaxLimit] = useState(10);
   const pagesLimit = 10;
 
   // build page numbers list based on total number of pages
@@ -15,35 +13,26 @@ const Pagination = () => {
     pages.push(i);
   }
 
-  const handlePrevPage = () => {
+  const prevPageHandler = () => {
     if (
-      parseInt(input.page) !== 2 &&
-      (parseInt(input.page) - 1) % pagesLimit === 0
+      parseInt(props.input.page) !== 2 &&
+      (parseInt(props.input.page) - 1) % pagesLimit === 0
     ) {
       setMaxLimit(maxLimit - pagesLimit);
       setMinLimit(minLimit - pagesLimit);
     }
-    setInput(() => {
-      let prevPage = parseInt(input.page) - 1;
-      if (prevPage <= 0) {
-        prevPage = 1;
-      }
-      return { ...input, page: prevPage };
-    });
+    props.onPrevPage();
   };
 
-  const handleNextPage = () => {
-    if ((parseInt(input.page) + 1) % pagesLimit === 1) {
+  const nextPageHandler = () => {
+    if ((parseInt(props.input.page) + 1) % pagesLimit === 1) {
       setMaxLimit(maxLimit + pagesLimit);
       setMinLimit(minLimit + pagesLimit);
     }
-    setInput(() => {
-      let nextPage = parseInt(input.page) + 1;
-      if (nextPage >= totalPages) {
-        nextPage = totalPages;
-      }
-      return { ...input, page: nextPage };
-    });
+    props.onNextPage(totalPages);
+  };
+  const changePageHandler = (event) => {
+    props.onChangePage(event.target.value);
   };
 
   const pageNumbers = pages.map((number) => {
@@ -52,7 +41,7 @@ const Pagination = () => {
         <button
           className={`${styles.button} ${styles.numbers}`}
           style={
-            parseInt(input.page) == number
+            parseInt(props.input.page) == number
               ? {
                   backgroundColor: "#f5c518",
                   color: "white",
@@ -62,9 +51,7 @@ const Pagination = () => {
           }
           key={number}
           value={number}
-          onClick={(event) =>
-            setInput({ ...input, page: Number(event.target.value) })
-          }
+          onClick={changePageHandler}
         >
           {number}
         </button>
@@ -106,19 +93,13 @@ const Pagination = () => {
 
   return (
     <div className={styles.container}>
-      <button
-        className={`${styles.controller} ${styles.button}`}
-        onClick={handlePrevPage}
-      >
+      <button className={styles.button} onClick={prevPageHandler}>
         &lt;&lt;
       </button>
       {decrementEllipsis}
       {pageNumbers}
       {incrementEllipsis}
-      <button
-        className={`${styles.controller} ${styles.button}`}
-        onClick={handleNextPage}
-      >
+      <button className={styles.button} onClick={nextPageHandler}>
         &gt;&gt;
       </button>
     </div>
