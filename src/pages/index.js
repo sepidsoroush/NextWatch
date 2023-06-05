@@ -43,7 +43,6 @@ export default function Home() {
   const inputHandler = (value) => {
     setInput({ ...input, title: value, page: 1 });
   };
-  console.log(input);
 
   // Pagination functions
   const fetchPrevPage = () => {
