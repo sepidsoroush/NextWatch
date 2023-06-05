@@ -5,7 +5,6 @@ import SearchBox from "../components/UI/SearchBox";
 import Alert from "../components/UI/Error";
 import Pagination from "../components/UI/Pagination";
 import MoviesList from "../components/Movies/MovieList";
-import { AppContext } from "@/context/app-context";
 
 export default function Home() {
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -45,24 +44,10 @@ export default function Home() {
   // console.log(input)
   return (
     <div className={styles.container}>
-      <AppContext.Provider
-        value={{
-          searchedMovies,
-          input,
-          setInput,
-          getData,
-          handleKeypress,
-          error,
-          results,
-          booked,
-          setBooked,
-        }}
-      >
-        <SearchBox />
-        <Alert />
-        <MoviesList />
-        <Pagination />
-      </AppContext.Provider>
+      <SearchBox />
+      <Alert />
+      <MoviesList />
+      <Pagination />
     </div>
   );
 }
