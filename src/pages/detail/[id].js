@@ -5,7 +5,7 @@ import axios from "axios";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import styles from "@/styles/Movie.module.css";
-// import Bookmark from '@/components/Bookmark'
+import Bookmark from "@/components/Movies/Bookmark";
 import { FaArrowLeft, FaAward, FaStar, FaFilm } from "react-icons/fa";
 
 export default function Movie() {
@@ -32,6 +32,7 @@ export default function Movie() {
   useEffect(() => {
     findMovie();
   }, []);
+
   return (
     <div className={`${styles.body} ${inter.className}`}>
       <div className={styles.container}>
@@ -122,7 +123,7 @@ export default function Movie() {
                 </div>
               ) : null}
             </div>
-            {/* <Bookmark items={item} />  */}
+            <Bookmark info={item} />
           </div>
         </div>
         <div className={styles.backContainer}>

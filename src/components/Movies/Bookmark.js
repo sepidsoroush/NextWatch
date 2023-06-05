@@ -1,30 +1,21 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { database } from "../../../firebase";
-import { collection, doc, deleteDoc, setDoc } from "firebase/firestore";
-const Bookmark = ({ items }) => {
-  const [booked, setBooked] = useState(false);
-  const handleBookmark = async (e) => {
-    e.preventDefault();
-    if (!booked) {
-      await setDoc(doc(collection(database, "watchlist"), items.imdbID), {
-        id: items.imdbID,
-        title: items.Title,
-      });
-      setBooked(true);
-    } else {
-      const collectionById = doc(database, "watchlist", items.imdbID);
-      deleteDoc(collectionById);
-      setBooked(false);
-    }
+import { AppContext } from "@/context/app-context";
+
+const Bookmark = (props) => {
+  const { watchlist, toggleWatchlist } = useContext(AppContext);
+  const isBookmarked = watchlist.includes(props.info.imdbID);
+
+  const handleBookmark = () => {
+    toggleWatchlist(props.info.imdbID);
   };
 
   return (
     <div>
-      <div onClick={handleBookmark}>
-        {booked ? <FaBookmark /> : <FaRegBookmark />}
-        <p>{booked ? "Remove from Watchlist" : "Add to Watchlist"}</p>
-      </div>
+      <button onClick={handleBookmark}>
+        {isBookmarked ? <FaBookmark /> : <FaRegBookmark />}
+      </button>
+      <span>{isBookmarked ? "Remove from Watchlist" : "Add to Watchlist"}</span>
     </div>
   );
 };

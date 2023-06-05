@@ -1,29 +1,24 @@
 import { AppContext } from "./app-context";
+import { useState } from "react";
 
 const ContextProvider = (props) => {
-  let watchlist = [];
+  const [watchlist, setWatchlist] = useState([]);
 
-  const toggleBookmarkHandler = (movie) => {
-    const existingItemIndex = watchlist.findIndex(
-      (item) => item.id === movie.id
-    );
-    let updatedItems;
-
-    if (existingItemIndex >= 0) {
-      updatedItems = watchlist.concat(movie);
+  const toggleWatchlist = (movie) => {
+    if (watchlist.includes(movie)) {
+      setWatchlist(watchlist.filter((m) => m !== movie));
     } else {
-      updatedItems = watchlist.filter((item) => item.id !== movie.id);
+      setWatchlist([...watchlist, movie]);
     }
-    return updatedItems;
   };
 
-  const context = {
-    items: watchlist,
-    toggleBookmark: toggleBookmarkHandler,
+  const value = {
+    watchlist,
+    toggleWatchlist,
   };
 
   return (
-    <AppContext.Provider value={context}>{props.children}</AppContext.Provider>
+    <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
   );
 };
 
