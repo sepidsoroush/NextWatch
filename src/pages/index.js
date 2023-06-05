@@ -15,7 +15,6 @@ export default function Home() {
   });
   const [error, setError] = useState("");
   const [results, setResults] = useState("");
-  // const [booked, setBooked] = useState(false);
 
   const getData = () => {
     axios
@@ -36,6 +35,15 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, [input]);
+
+  // SearchBox functions
+  const categoryHandler = (category) => {
+    setInput({ ...input, type: category });
+  };
+  const inputHandler = (value) => {
+    setInput({ ...input, title: value, page: 1 });
+  };
+  console.log(input);
 
   // Pagination functions
   const fetchPrevPage = () => {
@@ -63,7 +71,11 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <SearchBox onChooseCategory />
+      <SearchBox
+        onChooseCategory={categoryHandler}
+        onChangeInput={inputHandler}
+        onFetchData={getData}
+      />
       <Alert error={error} />
       <MoviesList searchResult={searchedMovies} />
       <Pagination
