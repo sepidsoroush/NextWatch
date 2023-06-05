@@ -1,14 +1,11 @@
-import { AppContext } from "@/context/app-context";
-import { useContext } from "react";
 import styles from "@/styles/Error.module.css";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
-const Alert = () => {
-  const { error } = useContext(AppContext);
+const Alert = (props) => {
   return (
     <div className={`${inter.className} ${styles.container}`}>
-      {error ? <p className={styles.error}>{error}</p> : null}
+      {props.error ? <p className={styles.error}>{props.error}</p> : null}
     </div>
   );
 };
