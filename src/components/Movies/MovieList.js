@@ -1,23 +1,18 @@
-import { AppContext } from "@/context/app-context";
-import { useContext } from "react";
 import Link from "next/link";
 import styles from "@/styles/List.module.css";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
-const MoviesList = () => {
+const MoviesList = (props) => {
   const url =
     "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
-  const { searchedMovies } = useContext(AppContext);
   return (
-    <div className={styles.container}>
-      {searchedMovies ? (
-        <h1 className={`${styles.header} ${inter.className}`}>
-          Search results:
-        </h1>
+    <div className={`${styles.container} ${inter.className}`}>
+      {props.searchResult ? (
+        <h1 className={styles.header}>Search results:</h1>
       ) : null}
-      {searchedMovies
-        ? searchedMovies.map((item) => {
+      {props.searchResult
+        ? props.searchResult.map((item) => {
             const {
               imdbID: id,
               Title: title,
@@ -26,22 +21,20 @@ const MoviesList = () => {
               Poster: poster,
             } = item;
             return (
-              <div className={inter.className}>
-                <Link href={`/${id}`}>
-                  <div key={id} className={styles.movie}>
-                    <img
-                      src={poster === "N/A" ? url : poster}
-                      alt={title}
-                      className={styles.poster}
-                    />
-                    <div className={styles.info}>
-                      <p className={styles.title}>{title}</p>
-                      <p className={styles.detail}>{year}</p>
-                      <p className={styles.detail}>{type}</p>
-                    </div>
+              <Link href={`detail/${id}`}>
+                <div key={id} className={styles.movie}>
+                  <img
+                    src={poster === "N/A" ? url : poster}
+                    alt={title}
+                    className={styles.poster}
+                  />
+                  <div className={styles.info}>
+                    <p className={styles.title}>{title}</p>
+                    <p className={styles.detail}>{year}</p>
+                    <p className={styles.detail}>{type}</p>
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             );
           })
         : null}
