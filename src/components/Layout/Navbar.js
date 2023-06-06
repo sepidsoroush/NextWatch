@@ -10,6 +10,9 @@ const Navbar = () => {
         <h1>Movies Database</h1>
         <div className={styles.links}>
           <Link href="/">Home</Link>
+          <Link href="/movie">Movies</Link>
+          <Link href="/tv">TV series</Link>
+          <Link href="/game">Game</Link>
           <Link href="/watchlist">Watch list</Link>
         </div>
       </div>
