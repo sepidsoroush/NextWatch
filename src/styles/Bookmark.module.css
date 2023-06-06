@@ -1,0 +1,11 @@
+.infoTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon {
+  margin-right: 8px;
+}
+.infoTitle:hover .icon {
+  color: rgba(245, 197, 24, 1);
+}

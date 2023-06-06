@@ -15,7 +15,7 @@ const Post = (props) => {
     "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 
   return (
-    <Link href={`detail/${id}`}>
+    <Link href={`movie/${id}`}>
       <div key={id} className={`${styles.movie} ${inter.className}`}>
         <img
           src={poster === "N/A" ? url : poster}

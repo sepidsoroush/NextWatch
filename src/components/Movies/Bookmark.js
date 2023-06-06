@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { AppContext } from "@/context/app-context";
+import styles from "@/styles/Bookmark.module.css";
 
 const Bookmark = (props) => {
   const { watchlist, toggleWatchlist } = useContext(AppContext);
@@ -11,10 +12,10 @@ const Bookmark = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={handleBookmark}>
+    <div className={styles.infoTitle}>
+      <p onClick={handleBookmark} className={styles.icon}>
         {isBookmarked ? <FaBookmark /> : <FaRegBookmark />}
-      </button>
+      </p>
       <span>{isBookmarked ? "Remove from Watchlist" : "Add to Watchlist"}</span>
     </div>
   );
