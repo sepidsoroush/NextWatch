@@ -1,4 +1,4 @@
-import styles from "@/styles/Search.module.css";
+import styles from "@/styles/SearchBox.module.css";
 import { FaSearch } from "react-icons/fa";
 
 const SearchBox = (props) => {

@@ -1,9 +1,10 @@
-import styles from "@/styles/Pages.module.css";
+import PageContent from "@/components/Movies/PageContent";
 
 const TVPage = () => {
   return (
-    <div className={styles.body}>
+    <div>
       <h1>TV Series Page</h1>
+      <PageContent type="series" />
     </div>
   );
 };
