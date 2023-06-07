@@ -94,6 +94,9 @@ main {
   max-width: 1200px;
   padding: 0 19px;
 }
+ul {
+  list-style-type: none;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import styles from "@/styles/Post.module.css";
+import styles from "@/styles/Card.module.css";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
-const Post = (props) => {
+const Card = (props) => {
   const {
     imdbID: id,
     Title: title,
@@ -14,21 +14,25 @@ const Post = (props) => {
   const url =
     "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 
+  let updatedTitle;
+  if (title.length > 35) {
+    updatedTitle = title.slice(0, 35) + "...";
+  } else {
+    updatedTitle = title;
+  }
+
   return (
     <Link href={`movie/${id}`}>
       <div key={id} className={`${styles.movie} ${inter.className}`}>
-        <img
-          src={poster === "N/A" ? url : poster}
-          alt={title}
-          className={styles.poster}
-        />
-        <div className={styles.info}>
-          <p className={styles.title}>{title}</p>
-          <p className={styles.detail}>{year}</p>
-          <p className={styles.detail}>{type}</p>
+        <img src={poster === "N/A" ? url : poster} alt={title} />
+        <div className={styles.content}>
+          <span className={styles.title}>{updatedTitle}</span>
+          <span className={styles.detail}>
+            {year} - {type}
+          </span>
         </div>
       </div>
     </Link>
   );
 };
-export default Post;
+export default Card;

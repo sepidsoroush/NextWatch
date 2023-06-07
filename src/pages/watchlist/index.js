@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Link from "next/link";
-import Post from "@/components/Movies/Post";
+import Post from "@/components/Movies/Card";
 import { AppContext } from "@/context/app-context";
 import Bookmark from "@/components/Movies/Bookmark";
 
