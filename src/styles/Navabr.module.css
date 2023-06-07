@@ -22,15 +22,45 @@
   cursor: pointer;
 }
 .links {
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 .links a {
-  /* color: #000000; */
   text-decoration: none;
 }
 .links a:hover {
   text-decoration: underline;
+}
+
+/* hamburget menu */
+.hamburger {
+  display: none;
+  gap: 3rem;
+}
+
+.bars,
+.watchlist {
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
+}
+@media (min-width: 800px) {
+  .links {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .bars,
+  .MobileCart {
+    display: flex;
+  }
 }
