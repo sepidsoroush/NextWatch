@@ -1,0 +1,44 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: calc(100vh - 14rem);
+  margin-top: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.grid a {
+  text-decoration: none;
+  color: black;
+}
+
+.backContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+.backButton {
+  padding: 3px 6px;
+  margin-right: 5px;
+  border: 1px solid #3b3b3b;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.backButton:hover {
+  color: rgba(245, 197, 24, 1);
+  border: 1px solid rgba(245, 197, 24, 1);
+}
+.backButton:active {
+  transform: scale(0.9);
+}
+.icon {
+  margin-right: 8px;
+}

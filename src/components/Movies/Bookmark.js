@@ -5,10 +5,11 @@ import styles from "@/styles/Bookmark.module.css";
 
 const Bookmark = (props) => {
   const { watchlist, toggleWatchlist } = useContext(AppContext);
-  const isBookmarked = watchlist.includes(props.info.imdbID);
-
+  const isBookmarked = watchlist.some(
+    (movie) => movie.imdbID === props.info.imdbID
+  );
   const handleBookmark = () => {
-    toggleWatchlist(props.info.imdbID);
+    toggleWatchlist(props.info);
   };
 
   return (

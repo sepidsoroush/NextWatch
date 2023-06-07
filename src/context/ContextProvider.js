@@ -5,10 +5,14 @@ const ContextProvider = (props) => {
   const [watchlist, setWatchlist] = useState([]);
 
   const toggleWatchlist = (movie) => {
-    if (watchlist.includes(movie)) {
-      setWatchlist(watchlist.filter((m) => m !== movie));
+    const movieIndex = watchlist.findIndex((m) => m.imdbID === movie.imdbID);
+
+    if (movieIndex !== -1) {
+      setWatchlist((prevWatchlist) =>
+        prevWatchlist.filter((m) => m.imdbID !== movie.imdbID)
+      );
     } else {
-      setWatchlist([...watchlist, movie]);
+      setWatchlist((prevWatchlist) => [...prevWatchlist, movie]);
     }
   };
 
