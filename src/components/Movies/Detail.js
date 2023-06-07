@@ -39,9 +39,10 @@ const DetailInfo = (props) => {
           </p>
         </div>
         <div>
-          {item.Genre.split(", ").map((element) => {
-            return <span className={styles.genre}>{element}</span>;
-          })}
+          {item.Genre &&
+            item.Genre.split(", ").map((element) => {
+              return <span className={styles.genre}>{element}</span>;
+            })}
         </div>
         <div>
           <p className={styles.plot}>{item.Plot}</p>

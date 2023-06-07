@@ -10,15 +10,15 @@ import Loading from "@/components/UI/Loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const GameDetail = () => {
+const TvDetail = () => {
   const router = useRouter();
-  const { gameId } = router.query;
+  const { seriesId } = router.query;
   const [item, setItem] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`http://www.omdbapi.com/?apikey=6749959a&i=${gameId}`)
+      .get(`http://www.omdbapi.com/?apikey=6749959a&i=${seriesId}`)
       .then((response) => {
         setItem(response.data);
         setIsLoading(false);
@@ -27,7 +27,7 @@ const GameDetail = () => {
         console.log(error);
         setIsLoading(false);
       });
-  }, [gameId]);
+  }, [seriesId]);
 
   return (
     <div className={`${styles.body} ${inter.className}`}>
@@ -37,7 +37,7 @@ const GameDetail = () => {
         <div className={styles.container}>
           <DetailInfo item={item} />
           <div className={styles.backContainer}>
-            <Link className={styles.backButton} href="/game">
+            <Link className={styles.backButton} href="/series">
               <FaArrowLeft className={styles.icon} />
               <p>Back</p>
             </Link>
@@ -47,4 +47,4 @@ const GameDetail = () => {
     </div>
   );
 };
-export default GameDetail;
+export default TvDetail;

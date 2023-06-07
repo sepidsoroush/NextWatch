@@ -1,9 +1,10 @@
-import styles from "@/styles/Pages.module.css";
+import PageContent from "@/components/Movies/PageContent";
 
 const MoviePage = () => {
   return (
-    <div className={styles.body}>
+    <div>
       <h1>Movies Page</h1>
+      <PageContent type="movie" />
     </div>
   );
 };

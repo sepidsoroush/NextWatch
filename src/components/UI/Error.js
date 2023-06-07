@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 const Alert = (props) => {
   return (
     <div className={`${inter.className} ${styles.container}`}>
-      {props.error ? <p className={styles.error}>{props.error}</p> : null}
+      {props.error && <p className={styles.error}>{props.error}</p>}
     </div>
   );
 };

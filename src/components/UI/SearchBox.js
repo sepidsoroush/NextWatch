@@ -1,12 +1,12 @@
-import styles from "@/styles/Search.module.css";
+import styles from "@/styles/SearchBox.module.css";
+import { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 
 const SearchBox = (props) => {
-  const categoriesHandler = (event) => {
-    props.onChooseCategory(event.target.value);
-  };
-  const inputHandler = (event) => {
-    props.onChangeInput(event.target.value);
+  const titleInputRef = useRef();
+  const submitHandler = (event) => {
+    event.preventDefault();
+    props.onChangeInput(titleInputRef.current.value);
   };
   const handleKeypress = (event) => {
     if (event.keyCode === 13) {
@@ -18,26 +18,19 @@ const SearchBox = (props) => {
   };
 
   return (
-    <div className={styles.searchBox}>
-      <select onChange={categoriesHandler} className={styles.type}>
-        <option value="">All</option>
-        <option value="movie">Movie</option>
-        <option value="series">TV Series</option>
-        <option value="episode">Episode</option>
-        <option value="game">Game</option>
-      </select>
+    <form className={styles.searchBox} onSubmit={submitHandler}>
       <input
         className={styles.input}
         type="text"
         placeholder="Search"
+        ref={titleInputRef}
         required
-        onChange={inputHandler}
         onKeyDown={handleKeypress}
       />
       <button className={styles.button} onClick={searchHandler}>
         <FaSearch style={{ height: "100%" }} />
       </button>
-    </div>
+    </form>
   );
 };
 export default SearchBox;

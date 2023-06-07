@@ -22,7 +22,7 @@ const Card = (props) => {
   }
 
   return (
-    <Link href={`movie/${id}`}>
+    <Link href={`${type}/${id}`}>
       <div key={id} className={`${styles.movie} ${inter.className}`}>
         <img src={poster === "N/A" ? url : poster} alt={title} />
         <div className={styles.content}>
