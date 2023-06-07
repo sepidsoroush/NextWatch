@@ -37,9 +37,6 @@ const PageContent = (props) => {
   }, [input]);
 
   // SearchBox functions
-  const categoryHandler = (category) => {
-    setInput({ ...input, type: category });
-  };
   const inputHandler = (value) => {
     setInput({ ...input, title: value, page: 1 });
   };
@@ -70,11 +67,7 @@ const PageContent = (props) => {
 
   return (
     <div className={styles.container}>
-      <SearchBox
-        onChooseCategory={categoryHandler}
-        onChangeInput={inputHandler}
-        onFetchData={getData}
-      />
+      <SearchBox onChangeInput={inputHandler} onFetchData={getData} />
       <Alert error={error} />
       <MoviesList searchResult={searchedMovies} />
       <Pagination
