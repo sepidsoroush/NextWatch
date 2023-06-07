@@ -4,6 +4,7 @@
   border: 1px solid gray;
   border-radius: 5px;
   min-height: max-content;
+  width: 100%;
 }
 .searchBox:focus-within {
   border: 1px solid #f5c518;
@@ -26,11 +27,12 @@
   border: 0;
   margin: 5px 10px 5px 5px;
   padding: 5px;
-  min-width: 200px;
+  width: 100%;
+  background-color: transparent;
 }
 .input:focus {
   outline: 0;
-  color: #f5c518;
+  color: white;
 }
 .button {
   position: relative;

@@ -37,15 +37,18 @@
 /* hamburget menu */
 .hamburger {
   display: none;
-  gap: 3rem;
 }
-
-.bars,
-.watchlist {
+.icon {
   font-size: 1.5rem;
   display: none;
   cursor: pointer;
 }
+
+.searchbox {
+  transition: all 0.3 linear;
+  transform: translateY(100);
+}
+
 @media (min-width: 800px) {
   .links {
     font-size: 1rem;
@@ -53,14 +56,17 @@
 }
 
 @media (max-width: 600px) {
+  .container h1 {
+    font-size: 1.2rem;
+  }
   .links {
     display: none;
   }
   .hamburger {
     display: flex;
   }
-  .bars,
-  .MobileCart {
+  .icon {
     display: flex;
+    margin: 0.5rem;
   }
 }
