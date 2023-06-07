@@ -22,7 +22,7 @@ const Navbar = () => {
           <div className={styles.links}>
             <Link href="/">Home</Link>
             <Link href="/movie">Movies</Link>
-            <Link href="/tv">TV series</Link>
+            <Link href="/series">TV series</Link>
             <Link href="/game">Games</Link>
             <Link href="/watchlist">Watchlist</Link>
           </div>
