@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px 0;
+  margin: 2rem 0 1rem 0;
 }
 .backButton {
   padding: 3px 6px;
@@ -41,4 +41,28 @@
 }
 .icon {
   margin-right: 8px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #707070;
+  margin: 0 auto;
+}
+.bookmark {
+  width: 6rem;
+  height: 8rem;
+  margin: 1.2rem 0;
+}
+.empty p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.empty a {
+  color: #2472b5;
+}
+.empty a:hover {
+  text-decoration: underline;
 }
