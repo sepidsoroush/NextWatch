@@ -6,6 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import DetailInfo from "@/components/Movies/Detail";
+import Loading from "@/components/UI/Loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +32,7 @@ const GameDetail = () => {
   return (
     <div className={`${styles.body} ${inter.className}`}>
       {isLoading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : (
         <div className={styles.container}>
           <DetailInfo item={item} />
