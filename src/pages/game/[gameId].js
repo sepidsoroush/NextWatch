@@ -1,3 +1,6 @@
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "@/styles/Movie.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
@@ -7,48 +10,39 @@ import DetailInfo from "@/components/Movies/Detail";
 const inter = Inter({ subsets: ["latin"] });
 
 const GameDetail = () => {
-  const item = {
-    Title: "The Last of Us",
-    Year: "2023–",
-    Rated: "TV-MA",
-    Released: "15 Jan 2023",
-    Runtime: "18S min",
-    Genre: "Action, Adventure, Drama",
-    Director: "N/A",
-    Writer: "Neil Druckmann, Craig Mazin",
-    Actors: "Pedro Pascal, Bella Ramsey, Anna Torv",
-    Plot: "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.",
-    Language: "English",
-    Country: "Canada, United States",
-    Awards: "6 nominations",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg",
-    Ratings: [
-      {
-        Source: "Internet Movie Database",
-        Value: "8.8/10",
-      },
-    ],
-    Metascore: "N/A",
-    imdbRating: "8.8",
-    imdbVotes: "404,667",
-    imdbID: "tt3581920",
-    Type: "series",
-    totalSeasons: "1",
-    Response: "True",
-  };
+  const router = useRouter();
+  const { gameId } = router.query;
+  const [item, setItem] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`http://www.omdbapi.com/?apikey=6749959a&i=${gameId}`)
+      .then((response) => {
+        setItem(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
+  }, [gameId]);
 
   return (
     <div className={`${styles.body} ${inter.className}`}>
-      <div className={styles.container}>
-        <DetailInfo item={item} />
-        <div className={styles.backContainer}>
-          <Link className={styles.backButton} href="/">
-            <FaArrowLeft className={styles.icon} />
-            <p>Back</p>
-          </Link>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className={styles.container}>
+          <DetailInfo item={item} />
+          <div className={styles.backContainer}>
+            <Link className={styles.backButton} href="/game">
+              <FaArrowLeft className={styles.icon} />
+              <p>Back</p>
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

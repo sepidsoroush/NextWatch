@@ -1,6 +1,6 @@
-// import { useRouter } from "next/router";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "@/styles/Movie.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
@@ -10,69 +10,41 @@ import DetailInfo from "@/components/Movies/Detail";
 const inter = Inter({ subsets: ["latin"] });
 
 const MovieDetail = () => {
-  // const router = useRouter();
-  // const { id } = router.query;
-  // const [item, setItem] = useState({});
+  const router = useRouter();
+  const { movieId } = router.query;
+  const [item, setItem] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
-  // const findMovie = () => {
-  //   axios
-  //     .get(`http://www.omdbapi.com/?apikey=6749959a&i=${id}`)
-  //     .then((response) => {
-  //       setItem(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-  // useEffect(() => {
-  //   findMovie();
-  // }, []);
-
-  const item = {
-    Title: "Batman Begins",
-    Year: "2005",
-    Rated: "PG-13",
-    Released: "15 Jun 2005",
-    Runtime: "140 min",
-    Genre: "Action, Crime, Drama",
-    Director: "Christopher Nolan",
-    Writer: "Bob Kane, David S. Goyer, Christopher Nolan",
-    Actors: "Christian Bale, Michael Caine, Ken Watanabe",
-    Plot: "After witnessing his parents' death, Bruce learns the art of fighting to confront injustice. When he returns to Gotham as Batman, he must stop a secret society that intends to destroy the city.",
-    Language: "English, Mandarin",
-    Country: "United States, United Kingdom",
-    Awards: "Nominated for 1 Oscar. 14 wins & 79 nominations total",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-    Ratings: [
-      { Source: "Internet Movie Database", Value: "8.2/10" },
-      { Source: "Rotten Tomatoes", Value: "84%" },
-      { Source: "Metacritic", Value: "70/100" },
-    ],
-    Metascore: "70",
-    imdbRating: "8.2",
-    imdbVotes: "1,501,889",
-    imdbID: "tt0372784",
-    Type: "movie",
-    DVD: "18 Oct 2005",
-    BoxOffice: "$206,863,479",
-    Production: "N/A",
-    Website: "N/A",
-    Response: "True",
-  };
+  useEffect(() => {
+    axios
+      .get(`http://www.omdbapi.com/?apikey=6749959a&i=${movieId}`)
+      .then((response) => {
+        setItem(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
+  }, [movieId]);
 
   return (
     <div className={`${styles.body} ${inter.className}`}>
-      <div className={styles.container}>
-        <DetailInfo item={item} />
-        <div className={styles.backContainer}>
-          <Link className={styles.backButton} href="/">
-            <FaArrowLeft className={styles.icon} />
-            <p>Back</p>
-          </Link>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className={styles.container}>
+          <DetailInfo item={item} />
+          <div className={styles.backContainer}>
+            <Link className={styles.backButton} href="/movie">
+              <FaArrowLeft className={styles.icon} />
+              <p>Back</p>
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
+
 export default MovieDetail;
