@@ -1,43 +1,14 @@
 import styles from "@/styles/PageContent.module.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { AppContext } from "@/context/app-context";
+import { useContext } from "react";
 import SearchBox from "../UI/SearchBox";
 import Alert from "../UI/Error";
 import Pagination from "../UI/Pagination";
 import SearchList from "../Movies/SearchList";
 
 const PageContent = (props) => {
-  const [searchedMovies, setSearchedMovies] = useState([]);
-  const [input, setInput] = useState({
-    title: "Batman",
-    page: 1,
-  });
-  const [error, setError] = useState("");
-  const [results, setResults] = useState("");
-
-  // const getData = () => {
-  //   axios
-  //     .get(
-  //       `http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${props.type}&page=${input.page}`
-  //     )
-  //     .then((response) => {
-  //       setSearchedMovies(response.data.Search);
-  //       setError(response.data.Error);
-  //       setResults(response.data.totalResults);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, [input]);
-
-  // // SearchBox functions
-  // const inputHandler = (value) => {
-  //   setInput({ ...input, title: value, page: 1 });
-  // };
+  const { input, setInput, error, searchedMovies, totalResults } =
+    useContext(AppContext);
 
   // Pagination functions
   const fetchPrevPage = () => {
@@ -69,7 +40,7 @@ const PageContent = (props) => {
       <Alert error={error} />
       <SearchList searchResult={searchedMovies} />
       <Pagination
-        results={results}
+        results={totalResults}
         input={input}
         onPrevPage={fetchPrevPage}
         onNextPage={fetchNextPage}
