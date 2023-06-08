@@ -1,33 +1,18 @@
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "@/styles/Movie.module.css";
+import { useRouter } from "next/router";
 import { FaArrowLeft } from "react-icons/fa";
-import Link from "next/link";
-import { Inter } from "next/font/google";
 import DetailInfo from "@/components/Movies/Detail";
 import Loading from "@/components/UI/Loading";
+import useFetch from "@/hooks/use-fetch";
+import Link from "next/link";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const MovieDetail = () => {
   const router = useRouter();
   const { movieId } = router.query;
-  const [item, setItem] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    axios
-      .get(`http://www.omdbapi.com/?apikey=6749959a&i=${movieId}`)
-      .then((response) => {
-        setItem(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  }, [movieId]);
+  const { isLoading, searchedMovies: item } = useFetch(`&i=${movieId}`);
 
   return (
     <div className={`${styles.body} ${inter.className}`}>
