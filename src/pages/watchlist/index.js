@@ -11,7 +11,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Watchlist = () => {
   const { watchlist } = useContext(AppContext);
-  console.log(watchlist);
 
   return (
     <div className={`${styles.body} ${inter.className}`}>
