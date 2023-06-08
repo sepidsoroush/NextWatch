@@ -1,7 +1,6 @@
 import { AppContext } from "./app-context";
 import { useState } from "react";
 import useFetch from "../hooks/use-fetch";
-export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 const ContextProvider = (props) => {
   // search context
@@ -10,7 +9,7 @@ const ContextProvider = (props) => {
     page: 1,
     type: "",
   });
-  const { isLoading, error, searchedMovies } = useFetch(
+  const { isLoading, error, searchedMovies, totalResults } = useFetch(
     `&s=${input.title}&type=${input.type}&page=${input.page}`
   );
 
@@ -33,6 +32,7 @@ const ContextProvider = (props) => {
     isLoading,
     error,
     searchedMovies,
+    totalResults,
     input,
     setInput,
   };

@@ -15,29 +15,29 @@ const PageContent = (props) => {
   const [error, setError] = useState("");
   const [results, setResults] = useState("");
 
-  const getData = () => {
-    axios
-      .get(
-        `http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${props.type}&page=${input.page}`
-      )
-      .then((response) => {
-        setSearchedMovies(response.data.Search);
-        setError(response.data.Error);
-        setResults(response.data.totalResults);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const getData = () => {
+  //   axios
+  //     .get(
+  //       `http://www.omdbapi.com/?apikey=6749959a&s=${input.title}&type=${props.type}&page=${input.page}`
+  //     )
+  //     .then((response) => {
+  //       setSearchedMovies(response.data.Search);
+  //       setError(response.data.Error);
+  //       setResults(response.data.totalResults);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
-  useEffect(() => {
-    getData();
-  }, [input]);
+  // useEffect(() => {
+  //   getData();
+  // }, [input]);
 
-  // SearchBox functions
-  const inputHandler = (value) => {
-    setInput({ ...input, title: value, page: 1 });
-  };
+  // // SearchBox functions
+  // const inputHandler = (value) => {
+  //   setInput({ ...input, title: value, page: 1 });
+  // };
 
   // Pagination functions
   const fetchPrevPage = () => {
@@ -65,7 +65,7 @@ const PageContent = (props) => {
 
   return (
     <div className={styles.container}>
-      <SearchBox onChangeInput={inputHandler} onFetchData={getData} />
+      <SearchBox type={props.type} />
       <Alert error={error} />
       <SearchList searchResult={searchedMovies} />
       <Pagination

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 const useFetch = (urlParams) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState({ show: false, msg: "" });
+  const [error, setError] = useState(null);
   const [searchedMovies, setSearchedMovies] = useState(null);
   const [totalResults, setTotalResults] = useState();
 
@@ -12,15 +13,13 @@ const useFetch = (urlParams) => {
     await axios
       .get(url)
       .then((response) => {
-        const data = response.json();
-        if (data.Response === "True") {
-          setSearchedMovies(data.Search || data);
-          setError({ show: false, msg: "" });
+        if (response.data.Response === "True") {
+          setSearchedMovies(response.data.Search || response.data);
         } else {
-          setError({ show: true, msg: data.Error });
+          setError(response.data.Error);
         }
         setIsLoading(false);
-        setTotalResults(data.totalResults);
+        setTotalResults(response.data.totalResults);
       })
       .catch((error) => {
         console.log(error);
