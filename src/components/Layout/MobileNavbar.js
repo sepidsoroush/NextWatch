@@ -1,38 +1,28 @@
-import styles from "@/styles/MobileNavbar.module.css";
-import Link from "next/link";
+import styles from "@/styles/Navabr.module.css";
+import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
 import { Inter } from "next/font/google";
-import { FaTimes } from "react-icons/fa";
+import SearchBox from "../UI/SearchBox";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const MobileNavbar = (props) => {
   return (
-    <div
-      className={`${inter.className} ${styles.mobileNav} ${
-        props.status ? styles.openflex : styles.closedflex
-      }`}
-    >
-      <FaTimes
-        onClick={props.onShowMobileNav}
-        className={styles.icon}
-      ></FaTimes>
-      <div className={styles.mobileLinks}>
-        <Link onClick={props.onShowMobileNav} href="/">
-          Home
-        </Link>
-        <Link onClick={props.onShowMobileNav} href="/movie">
-          Movies
-        </Link>
-        <Link onClick={props.onShowMobileNav} href="/series">
-          TV Series
-        </Link>
-        <Link onClick={props.onShowMobileNav} href="/game">
-          Games
-        </Link>
-        <Link onClick={props.onShowMobileNav} href="/watchlist">
-          Watchlist
-        </Link>
-      </div>
+    <div className={styles.hamburger}>
+      {props.type !== "" && props.showSearchbox ? (
+        <FaSearch
+          onClick={props.mobileSearchboxHandler}
+          className={styles.icon}
+        />
+      ) : (
+        <div className={styles.mobileSearchbox}>
+          <SearchBox type={props.type} />
+          <FaTimes
+            onClick={props.mobileSearchboxHandler}
+            className={styles.icon}
+          />
+        </div>
+      )}
+      <FaBars onClick={props.sidebarHandler} className={styles.icon}></FaBars>
     </div>
   );
 };
