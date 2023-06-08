@@ -24,7 +24,9 @@ const SearchBox = (props) => {
       <input
         className={styles.input}
         type="text"
-        placeholder="Search"
+        placeholder={
+          props.type === "" ? "Search in Database" : `Search in ${props.type}`
+        }
         ref={titleInputRef}
         required
         onKeyDown={handleKeypress}

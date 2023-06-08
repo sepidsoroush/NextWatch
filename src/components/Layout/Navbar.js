@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "@/styles/Navabr.module.css";
 import MobileNavbar from "./MobileNavbar";
 import SearchBox from "../UI/SearchBox";
@@ -10,11 +11,22 @@ const inter = Inter({ subsets: ["latin"] });
 const Navbar = () => {
   const [mobileNav, setMobileNav] = useState(false);
   const [showSearchbox, setShowSearchbox] = useState(false);
+  const [type, setType] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (Object.keys(router.query).length > 0 || router.route === "/") {
+      setShowSearchbox(false);
+      setType("");
+    } else {
+      setShowSearchbox(true);
+      setType(router.route.slice(1));
+    }
+  }, [router]);
 
   const mobileNavbarHandler = () => {
     setMobileNav(!mobileNav);
   };
-
   const mobileSearchboxHandler = () => {
     setShowSearchbox(!showSearchbox);
   };
@@ -25,6 +37,15 @@ const Navbar = () => {
       <nav className={`${inter.className} ${styles.navbar}`}>
         <div className={styles.container}>
           <h1>MoviesDB</h1>
+          {showSearchbox && (
+            <div className={styles.searchbox}>
+              <SearchBox type={type} />
+              <FaTimes
+                onClick={mobileSearchboxHandler}
+                className={styles.icon}
+              />
+            </div>
+          )}
           <div className={styles.links}>
             <Link href="/">Home</Link>
             <Link href="/movie">Movies</Link>
@@ -33,7 +54,7 @@ const Navbar = () => {
             <Link href="/watchlist">Watchlist</Link>
           </div>
           <div className={styles.hamburger}>
-            {!showSearchbox && (
+            {type !== "" && !showSearchbox && (
               <FaSearch
                 onClick={mobileSearchboxHandler}
                 className={styles.icon}
@@ -45,12 +66,6 @@ const Navbar = () => {
             ></FaBars>
           </div>
         </div>
-        {showSearchbox && (
-          <div className={`${styles.container} ${styles.searchbox}`}>
-            <SearchBox />
-            <FaTimes onClick={mobileSearchboxHandler} className={styles.icon} />
-          </div>
-        )}
       </nav>
     </>
   );

@@ -4,7 +4,7 @@
   border: 1px solid gray;
   border-radius: 5px;
   min-height: max-content;
-  width: 100%;
+  /* width: 100%; */
 }
 .searchBox:focus-within {
   border: 1px solid #f5c518;
