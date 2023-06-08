@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 const Sidebar = (props) => {
   return (
     <div
-      className={`${inter.className} ${styles.mobileNav} ${
+      className={`${inter.className} ${styles.sidebar} ${
         props.status ? styles.openflex : styles.closedflex
       }`}
     >

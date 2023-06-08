@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-const API_ENDPOINT = `https://www.omdbapi.com/?apikey=6749959a`;
+const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 const useFetch = (urlParams) => {
   const [isLoading, setIsLoading] = useState(true);
