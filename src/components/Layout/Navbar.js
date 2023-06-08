@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/Navabr.module.css";
-import MobileNavbar from "./MobileNavbar";
+import Sidebar from "./Sidebar";
 import SearchBox from "../UI/SearchBox";
 import Link from "next/link";
 import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
@@ -9,7 +9,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
-  const [mobileNav, setMobileNav] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
   const [showSearchbox, setShowSearchbox] = useState(false);
   const [type, setType] = useState("");
   const router = useRouter();
@@ -24,8 +24,8 @@ const Navbar = () => {
     }
   }, [router]);
 
-  const mobileNavbarHandler = () => {
-    setMobileNav(!mobileNav);
+  const sidebarHandler = () => {
+    setShowSidebar(!showSidebar);
   };
   const mobileSearchboxHandler = () => {
     setShowSearchbox(!showSearchbox);
@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <>
-      <MobileNavbar onShowMobileNav={mobileNavbarHandler} status={mobileNav} />
+      <Sidebar onShowSidebar={sidebarHandler} status={showSidebar} />
       <nav className={`${inter.className} ${styles.navbar}`}>
         <div className={styles.container}>
           <h1>MoviesDB</h1>
@@ -60,10 +60,7 @@ const Navbar = () => {
                 className={styles.icon}
               />
             )}
-            <FaBars
-              onClick={mobileNavbarHandler}
-              className={styles.icon}
-            ></FaBars>
+            <FaBars onClick={sidebarHandler} className={styles.icon}></FaBars>
           </div>
         </div>
       </nav>

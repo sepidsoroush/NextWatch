@@ -1,35 +1,32 @@
-import styles from "@/styles/MobileNavbar.module.css";
+import styles from "@/styles/Sidebar.module.css";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { FaTimes } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const MobileNavbar = (props) => {
+const Sidebar = (props) => {
   return (
     <div
       className={`${inter.className} ${styles.mobileNav} ${
         props.status ? styles.openflex : styles.closedflex
       }`}
     >
-      <FaTimes
-        onClick={props.onShowMobileNav}
-        className={styles.icon}
-      ></FaTimes>
+      <FaTimes onClick={props.onShowSidebar} className={styles.icon}></FaTimes>
       <div className={styles.mobileLinks}>
-        <Link onClick={props.onShowMobileNav} href="/">
+        <Link onClick={props.onShowSidebar} href="/">
           Home
         </Link>
-        <Link onClick={props.onShowMobileNav} href="/movie">
+        <Link onClick={props.onShowSidebar} href="/movie">
           Movies
         </Link>
-        <Link onClick={props.onShowMobileNav} href="/series">
+        <Link onClick={props.onShowSidebar} href="/series">
           TV Series
         </Link>
-        <Link onClick={props.onShowMobileNav} href="/game">
+        <Link onClick={props.onShowSidebar} href="/game">
           Games
         </Link>
-        <Link onClick={props.onShowMobileNav} href="/watchlist">
+        <Link onClick={props.onShowSidebar} href="/watchlist">
           Watchlist
         </Link>
       </div>
@@ -37,4 +34,4 @@ const MobileNavbar = (props) => {
   );
 };
 
-export default MobileNavbar;
+export default Sidebar;
