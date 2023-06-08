@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "@/context/app-context";
 import styles from "@/styles/Pagination.module.css";
 
-const Pagination = (props) => {
-  const totalPages = Math.ceil(props.results / 10);
+const Pagination = () => {
+  const { input, setInput, totalResults } = useContext(AppContext);
+  const totalPages = Math.ceil(totalResults / 10);
   const [minLimit, setMinLimit] = useState(0);
   const [maxLimit, setMaxLimit] = useState(10);
   const pagesLimit = 10;
@@ -15,24 +17,38 @@ const Pagination = (props) => {
 
   const prevPageHandler = () => {
     if (
-      parseInt(props.input.page) !== 2 &&
-      (parseInt(props.input.page) - 1) % pagesLimit === 0
+      parseInt(input.page) !== 2 &&
+      (parseInt(input.page) - 1) % pagesLimit === 0
     ) {
       setMaxLimit(maxLimit - pagesLimit);
       setMinLimit(minLimit - pagesLimit);
     }
-    props.onPrevPage();
+    setInput((prevState) => {
+      let prevPage = parseInt(input.page) - 1;
+      if (prevPage <= 0) {
+        prevPage = 1;
+      }
+      return { ...prevState, page: prevPage };
+    });
   };
 
   const nextPageHandler = () => {
-    if ((parseInt(props.input.page) + 1) % pagesLimit === 1) {
+    if ((parseInt(input.page) + 1) % pagesLimit === 1) {
       setMaxLimit(maxLimit + pagesLimit);
       setMinLimit(minLimit + pagesLimit);
     }
-    props.onNextPage(totalPages);
+    setInput((prevState) => {
+      let nextPage = parseInt(input.page) + 1;
+      if (nextPage >= totalPages) {
+        nextPage = totalPages;
+      }
+      return { ...prevState, page: nextPage };
+    });
   };
   const changePageHandler = (event) => {
-    props.onChangePage(event.target.value);
+    setInput((prevState) => {
+      return { ...prevState, page: Number(event.target.value) };
+    });
   };
 
   const pageNumbers = pages.map((number) => {
@@ -41,7 +57,7 @@ const Pagination = (props) => {
         <button
           className={`${styles.button} ${styles.numbers}`}
           style={
-            parseInt(props.input.page) == number
+            parseInt(input.page) == number
               ? {
                   backgroundColor: "#f5c518",
                   color: "white",
