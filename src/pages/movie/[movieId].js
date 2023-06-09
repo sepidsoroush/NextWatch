@@ -4,7 +4,6 @@ import { FaArrowLeft } from "react-icons/fa";
 import DetailInfo from "@/components/Movies/Detail";
 import Loading from "@/components/UI/Loading";
 import useFetch from "@/hooks/use-fetch";
-import Link from "next/link";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,11 +20,11 @@ const MovieDetail = () => {
       ) : (
         <div className={styles.container}>
           <DetailInfo item={item} />
-          <div className={styles.backContainer}>
-            <Link className={styles.backButton} href="/">
+          <div className={styles.backContainer} onClick={() => router.back()}>
+            <div className={styles.backButton}>
               <FaArrowLeft className={styles.icon} />
               <p>Back</p>
-            </Link>
+            </div>
           </div>
         </div>
       )}
