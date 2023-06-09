@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "@/context/app-context";
+import { useRouter } from "next/router";
 import styles from "@/styles/Watchlist.module.css";
 import Link from "next/link";
 import Card from "@/components/Movies/Card";
@@ -11,6 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Watchlist = () => {
   const { watchlist } = useContext(AppContext);
+  const router = useRouter();
 
   return (
     <div className={`${styles.body} ${inter.className}`}>
@@ -35,11 +37,11 @@ const Watchlist = () => {
         </div>
       )}
 
-      <div className={styles.backContainer}>
-        <Link className={styles.backButton} href="/movie">
+      <div className={styles.backContainer} onClick={() => router.back()}>
+        <div className={styles.backButton}>
           <FaArrowLeft className={styles.icon} />
           <p>Back</p>
-        </Link>
+        </div>
       </div>
     </div>
   );

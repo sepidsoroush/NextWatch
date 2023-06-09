@@ -1,14 +1,14 @@
 .searchBox {
   margin: 1rem 0;
   display: flex;
-  border: 1px solid transparent;
+  border: 1px solid gray;
   border-radius: 30px;
   min-height: max-content;
   background-color: white;
   width: 100%;
 }
 .searchBox:focus-within {
-  border: 1px solid gray;
+  border: 1px solid rgba(245, 197, 24, 1);
 }
 .type {
   border: 0;

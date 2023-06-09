@@ -17,12 +17,8 @@
   max-width: 1200px;
   padding: 0 19px;
 }
-.rightContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-.navbar h1 {
+
+.title {
   height: auto;
   cursor: pointer;
 }
@@ -40,24 +36,8 @@
   text-decoration: underline;
 }
 
-/* hamburget menu */
-.hamburger {
-  display: none;
-}
-.icon {
-  font-size: 1.5rem;
-  display: none;
-  cursor: pointer;
-}
-.mobileSearchbox {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-}
-
 @media (max-width: 850px) {
-  .container h1 {
+  .title {
     font-size: 1.1rem;
   }
   .links {
@@ -67,18 +47,7 @@
 }
 
 @media (max-width: 600px) {
-  .container h1 {
+  .title {
     font-size: 1rem;
-  }
-  .links,
-  .searchbox {
-    display: none;
-  }
-  .hamburger {
-    display: flex;
-  }
-  .icon {
-    display: flex;
-    margin: 0.5rem;
   }
 }

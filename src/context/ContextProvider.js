@@ -5,7 +5,7 @@ import useFetch from "../hooks/use-fetch";
 const ContextProvider = (props) => {
   // search context
   const [input, setInput] = useState({
-    title: "Batman",
+    title: "",
     page: 1,
     type: "",
   });
