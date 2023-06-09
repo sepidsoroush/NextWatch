@@ -1,11 +1,17 @@
-import SearchBox from "@/components/UI/SearchBox";
 import styles from "@/styles/Home.module.css";
+import SearchBox from "@/components/UI/SearchBox";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className={styles.body}>
-      <h1>Welcome to Movie Database</h1>
-      <SearchBox type="" />
+    <div className={`${styles.homePage} ${inter.className}`}>
+      <section className={styles.hero}>
+        <h2>Welcome.</h2>
+        <h3>Millions of movies, TV shows and game to discover. Explore now.</h3>
+        <SearchBox type="" />
+      </section>
     </div>
   );
 }
