@@ -15,6 +15,7 @@ const useFetch = (urlParams) => {
       .then((response) => {
         if (response.data.Response === "True") {
           setSearchedMovies(response.data.Search || response.data);
+          setError(null);
         } else {
           setError(response.data.Error);
         }

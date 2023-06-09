@@ -1,7 +1,7 @@
 import styles from "@/styles/PageContent.module.css";
 import { AppContext } from "@/context/app-context";
 import { useContext } from "react";
-import Alert from "../UI/Error";
+import Alert from "../UI/Alert";
 import Pagination from "../UI/Pagination";
 import SearchList from "../Movies/SearchList";
 

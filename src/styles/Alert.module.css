@@ -1,0 +1,36 @@
+.notify {
+  color: white;
+  background-color: #b6002c;
+  padding: 0.5rem 1rem;
+  z-index: 101;
+  font-size: 1rem;
+  position: fixed;
+  transform: translate(-50%);
+  top: -100%;
+  left: 50%;
+}
+
+.slidein {
+  animation-duration: 4s;
+  animation-delay: -1s;
+  animation-name: slidein;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+@keyframes slidein {
+  0% {
+    top: -100%;
+  }
+
+  40% {
+    top: 90px;
+  }
+
+  60% {
+    top: 90px;
+  }
+
+  100% {
+    top: -100%;
+  }
+}

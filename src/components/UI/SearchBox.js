@@ -1,10 +1,10 @@
-import { AppContext } from "@/context/app-context";
 import styles from "@/styles/SearchBox.module.css";
+import { AppContext } from "@/context/app-context";
 import { useContext, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 
 const SearchBox = (props) => {
-  const { setInput, error } = useContext(AppContext);
+  const { setInput } = useContext(AppContext);
   const titleInputRef = useRef();
 
   const submitHandler = () => {
@@ -34,7 +34,6 @@ const SearchBox = (props) => {
       <button className={styles.button} onClick={submitHandler}>
         <FaSearch style={{ height: "100%" }} />
       </button>
-      {error && <div className="error">{error}</div>}
     </div>
   );
 };
