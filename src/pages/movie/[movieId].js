@@ -22,7 +22,7 @@ const MovieDetail = () => {
         <div className={styles.container}>
           <DetailInfo item={item} />
           <div className={styles.backContainer}>
-            <Link className={styles.backButton} href="/movie">
+            <Link className={styles.backButton} href="/">
               <FaArrowLeft className={styles.icon} />
               <p>Back</p>
             </Link>
