@@ -19,7 +19,6 @@ const Alert = (props) => {
       clearTimeout(timer);
     };
   }, [props.error]);
-  console.log(props.error);
 
   return (
     <div className={btnClasses}>
