@@ -1,20 +1,21 @@
 .searchBox {
-  margin: 1rem;
+  margin: 1rem 0;
   display: flex;
-  border: 1px solid gray;
-  border-radius: 5px;
+  border: 1px solid transparent;
+  border-radius: 30px;
   min-height: max-content;
+  background-color: white;
+  width: 100%;
 }
 .searchBox:focus-within {
-  border: 1px solid #f5c518;
+  border: 1px solid gray;
 }
-
 .type {
   border: 0;
   margin: 0;
   padding: 5px;
   border-radius: 5px 0 0 5px;
-  color: gray;
+  color: rgb(96, 96, 96);
 }
 .type:focus {
   outline: 0;

@@ -20,13 +20,11 @@ const SearchBox = (props) => {
   };
 
   return (
-    <div className={styles.searchBox}>
+    <form className={styles.searchBox}>
       <input
         className={styles.input}
         type="text"
-        placeholder={
-          props.type === "" ? "Search in Database" : `Search in ${props.type}`
-        }
+        placeholder="Search ..."
         ref={titleInputRef}
         required
         onKeyDown={handleKeypress}
@@ -34,7 +32,7 @@ const SearchBox = (props) => {
       <button className={styles.button} onClick={submitHandler}>
         <FaSearch style={{ height: "100%" }} />
       </button>
-    </div>
+    </form>
   );
 };
 export default SearchBox;
