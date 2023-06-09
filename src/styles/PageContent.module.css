@@ -1,8 +1,18 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: start;
   min-height: 100vh;
   height: max-content;
-  margin-top: 4rem;
+  margin-top: 6rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  max-width: 12rem;
+}
+.results {
+  width: 100%;
+  margin-left: 1.5rem;
 }

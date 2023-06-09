@@ -4,6 +4,8 @@ import { useContext } from "react";
 import Alert from "../../components/UI/Alert";
 import Pagination from "../../components/UI/Pagination";
 import SearchList from "../../components/Movies/SearchList";
+import Categories from "@/components/Search/Categories";
+import SearchBox from "@/components/Search/SearchBox";
 
 const PageContent = () => {
   const { error, searchedMovies } = useContext(AppContext);
@@ -11,8 +13,14 @@ const PageContent = () => {
   return (
     <div className={styles.container}>
       <Alert error={error} />
-      <SearchList searchResult={searchedMovies} />
-      <Pagination />
+      <div className={styles.panel}>
+        <SearchBox />
+        <Categories />
+      </div>
+      <div className={styles.results}>
+        <SearchList searchResult={searchedMovies} />
+        <Pagination />
+      </div>
     </div>
   );
 };
