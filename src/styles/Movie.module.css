@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 .container {
   margin: 36px;
@@ -14,6 +14,15 @@
   display: flex;
   flex-direction: row;
   margin: 36px;
+}
+.poster {
+  display: flex;
+  /* justify-content: center; */
+  margin-left: 1rem;
+}
+.poster img {
+  width: 20rem;
+  height: 30rem;
 }
 .header {
   display: flex;
@@ -79,4 +88,27 @@
   height: max-content;
   position: relative;
   right: 0;
+}
+.mobileBookmark {
+  display: none;
+}
+@media (max-width: 600px) {
+  .container {
+    margin: 5px;
+  }
+  .main {
+    flex-direction: column;
+    margin: 10px;
+  }
+  .poster img {
+    width: 75%;
+    height: 75%;
+  }
+  .bookmark {
+    display: none;
+  }
+  .mobileBookmark {
+    display: block;
+    margin-left: 1rem;
+  }
 }

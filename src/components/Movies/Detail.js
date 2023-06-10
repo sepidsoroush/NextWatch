@@ -24,13 +24,19 @@ const DetailInfo = (props) => {
 
   return (
     <div className={`${styles.main} ${inter.className}`}>
-      <img
-        style={
-          item.Poster === "N/A" ? { width: "240px", height: "320px" } : null
-        }
-        src={item.Poster === "N/A" ? url : item.Poster}
-        alt={item.Title}
-      />
+      <div className={styles.poster}>
+        <img
+          style={
+            item.Poster === "N/A" ? { width: "240px", height: "320px" } : null
+          }
+          src={item.Poster === "N/A" ? url : item.Poster}
+          alt={item.Title}
+        />
+        <div className={styles.mobileBookmark}>
+          <Bookmark info={item} />
+        </div>
+      </div>
+
       <div className={styles.right}>
         <div className={styles.header}>
           <h1 className={styles.title}>{item.Title}</h1>
