@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { FaArrowLeft } from "react-icons/fa";
 import DetailInfo from "@/components/Movies/Detail";
 import Loading from "@/components/UI/Loading";
+import Button from "@/components/UI/Button";
 import useFetch from "@/hooks/use-fetch";
 import { Inter } from "next/font/google";
 
@@ -20,12 +21,10 @@ const MovieDetail = () => {
       ) : (
         <div className={styles.container}>
           <DetailInfo item={item} />
-          <div className={styles.backContainer} onClick={() => router.back()}>
-            <div className={styles.backButton}>
-              <FaArrowLeft className={styles.icon} />
-              <p>Back</p>
-            </div>
-          </div>
+          <Button onClick={() => router.back()}>
+            <FaArrowLeft />
+            <span>Back</span>
+          </Button>
         </div>
       )}
     </div>

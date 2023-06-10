@@ -62,7 +62,6 @@
 .infoDetails {
   margin: 10px 0;
 }
-
 .infoDetails span {
   font-weight: 300;
   font-size: 14px;
@@ -74,26 +73,4 @@
   padding: 5px 0;
   border-bottom: 1px solid rgb(194, 191, 191);
   margin-left: 24px;
-}
-.backContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px 0;
-}
-.backButton {
-  padding: 3px 6px;
-  margin-right: 5px;
-  border: 1px solid #3b3b3b;
-  border-radius: var(--border-radius);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.backButton:hover {
-  color: rgba(245, 197, 24, 1);
-  border: 1px solid rgba(245, 197, 24, 1);
-}
-.backButton:active {
-  transform: scale(0.9);
 }
