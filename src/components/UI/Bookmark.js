@@ -8,6 +8,7 @@ const Bookmark = (props) => {
   const isBookmarked = watchlist.some(
     (movie) => movie.imdbID === props.info.imdbID
   );
+
   const handleBookmark = () => {
     toggleWatchlist(props.info);
   };
@@ -22,4 +23,5 @@ const Bookmark = (props) => {
     </div>
   );
 };
+
 export default Bookmark;

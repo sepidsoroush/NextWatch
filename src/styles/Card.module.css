@@ -1,5 +1,11 @@
 .card {
-  transition: all 0.15s ease-in;
+  position: relative;
+}
+
+.bookmark {
+  position: absolute;
+  top: 10px;
+  right: 30px;
 }
 .card:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -36,12 +42,4 @@
 .detail {
   color: rgba(0, 0, 0, 0.6);
   font-size: 0.7rem;
-}
-.bookmark {
-  position: relative;
-  top: -19rem;
-  left: 9rem;
-  z-index: 20;
-  color: lightgray;
-  background-color: white;
 }
