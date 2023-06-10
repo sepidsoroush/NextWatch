@@ -1,5 +1,11 @@
-.movie {
+.card {
   transition: all 0.15s ease-in;
+}
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+.movie {
   cursor: pointer;
   height: 20rem;
   box-sizing: border-box;
@@ -9,12 +15,6 @@
   flex-direction: column;
   flex-wrap: nowrap;
 }
-
-.movie:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transform: scale(1.02);
-}
-
 .movie img {
   object-fit: cover;
   border-radius: 12px 12px 0 0;
@@ -36,4 +36,12 @@
 .detail {
   color: rgba(0, 0, 0, 0.6);
   font-size: 0.7rem;
+}
+.bookmark {
+  position: relative;
+  top: -19rem;
+  left: 9rem;
+  z-index: 20;
+  color: lightgray;
+  background-color: white;
 }
