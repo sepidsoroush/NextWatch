@@ -41,8 +41,13 @@
   margin-left: 1rem;
 }
 .genre {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.genre span {
   padding: 3px 6px;
-  margin-right: 5px;
+  margin: 5px 5px 5px 0;
   border: 1px solid gray;
   border-radius: var(--border-radius);
   font-size: 14px;
@@ -70,6 +75,7 @@
 }
 .infoDetails {
   margin: 10px 0;
+  transition: height 0.3s linear;
 }
 .infoDetails span {
   font-weight: 300;
@@ -103,6 +109,10 @@
   .poster img {
     width: 75%;
     height: 75%;
+  }
+  .title {
+    font-size: 28px;
+    font-weight: 500;
   }
   .bookmark {
     display: none;

@@ -44,10 +44,10 @@ const DetailInfo = (props) => {
             {item.Type} • {item.Year} • {item.Rated} • {item.Runtime}
           </p>
         </div>
-        <div>
+        <div className={styles.genre}>
           {item.Genre &&
             item.Genre.split(", ").map((element) => {
-              return <span className={styles.genre}>{element}</span>;
+              return <span key={element}>{element}</span>;
             })}
         </div>
         <div>
