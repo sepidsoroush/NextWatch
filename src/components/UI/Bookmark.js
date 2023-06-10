@@ -13,11 +13,12 @@ const Bookmark = (props) => {
   };
 
   return (
-    <div className={styles.infoTitle}>
-      <p onClick={handleBookmark} className={styles.icon}>
-        {isBookmarked ? <FaBookmark /> : <FaRegBookmark />}
-      </p>
-      <span>{isBookmarked ? "Remove from Watchlist" : "Add to Watchlist"}</span>
+    <div className={styles.bookmark} onClick={handleBookmark}>
+      {isBookmarked ? (
+        <FaBookmark className={styles.icon} />
+      ) : (
+        <FaRegBookmark className={styles.icon} />
+      )}
     </div>
   );
 };

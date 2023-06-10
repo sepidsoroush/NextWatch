@@ -1,11 +1,12 @@
-.infoTitle {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.bookmark {
+  cursor: pointer;
+  width: 2.5rem;
+  position: absolute;
 }
-.icon {
-  margin-right: 8px;
-}
-.infoTitle:hover .icon {
+.bookmark:hover {
   color: rgba(245, 197, 24, 1);
+}
+.bookmark .icon {
+  height: 100%;
+  width: 100%;
 }

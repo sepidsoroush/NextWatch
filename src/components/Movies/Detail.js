@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "@/styles/Movie.module.css";
-import Bookmark from "@/components/Movies/Bookmark";
+import Bookmark from "@/components/UI/Bookmark";
 import { FaAward, FaStar, FaFilm } from "react-icons/fa";
 import { Inter } from "next/font/google";
 
@@ -95,6 +95,8 @@ const DetailInfo = (props) => {
             </div>
           )}
         </div>
+      </div>
+      <div className={styles.bookmark}>
         <Bookmark info={item} />
       </div>
     </div>

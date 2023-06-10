@@ -29,7 +29,7 @@
   font-weight: 400;
 }
 .right {
-  margin: 10px 20px;
+  margin-left: 1rem;
 }
 .genre {
   padding: 3px 6px;
@@ -41,7 +41,7 @@
 .plot {
   margin: 16px 0;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
 }
 .infoContainer {
   margin-bottom: 10px;
@@ -73,4 +73,10 @@
   padding: 5px 0;
   border-bottom: 1px solid rgb(194, 191, 191);
   margin-left: 24px;
+}
+.bookmark {
+  padding: 1.5rem 2rem 0 0;
+  height: max-content;
+  position: relative;
+  right: 0;
 }
