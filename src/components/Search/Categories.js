@@ -23,7 +23,7 @@ const Categories = () => {
 
   return (
     <div className={`${inter.className} ${styles.settings}`}>
-      <h4>Search Results</h4>
+      <h4>Type of results</h4>
       <ul className={styles.filters}>
         {types.map((item) => {
           const { id, title, type } = item;
