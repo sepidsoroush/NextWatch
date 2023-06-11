@@ -8,9 +8,11 @@ export default function Home() {
   return (
     <div className={`${styles.homePage} ${inter.className}`}>
       <section className={styles.hero}>
-        <h2>Welcome.</h2>
+        <h2>Welcome</h2>
         <h3>Millions of movies, TV shows and game to discover. Explore now.</h3>
-        <SearchBox type="" />
+        <div className={styles.search}>
+          <SearchBox type="" />
+        </div>
       </section>
     </div>
   );

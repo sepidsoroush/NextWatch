@@ -8,7 +8,7 @@
   width: 100%;
 }
 .searchBox:focus-within {
-  border: 1px solid rgba(245, 197, 24, 1);
+  border: 1px solid lightgray;
 }
 .type {
   border: 0;
@@ -53,5 +53,6 @@
 @media (max-width: 600px) {
   .searchBox {
     margin: 0 auto;
+    width: 100%;
   }
 }
