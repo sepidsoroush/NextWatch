@@ -33,8 +33,7 @@ const Watchlist = () => {
             Add movies and shows to your Watchlist to keep track of what you
             want to watch.
           </p>
-          <Link href="/movie">Browse Popular Movies</Link>
-          <Link href="/series">Browse Popular TV Shows</Link>
+          <Link href="/">Browse Popular Movies</Link>
         </div>
       )}
       <Button onClick={() => router.back()}>
