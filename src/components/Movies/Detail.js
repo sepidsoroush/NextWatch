@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "@/styles/Movie.module.css";
 import Bookmark from "@/components/UI/Bookmark";
 import { FaAward, FaStar, FaFilm } from "react-icons/fa";
+import Image from "next/image";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,12 +26,14 @@ const DetailInfo = (props) => {
   return (
     <div className={`${styles.main} ${inter.className}`}>
       <div className={styles.poster}>
-        <img
+        <Image
           style={
             item.Poster === "N/A" ? { width: "240px", height: "320px" } : null
           }
           src={item.Poster === "N/A" ? url : item.Poster}
           alt={item.Title}
+          width={500}
+          height={500}
         />
         <div className={styles.mobileBookmark}>
           <Bookmark info={item} />
