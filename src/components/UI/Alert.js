@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 const Alert = (props) => {
   const [resetStyle, setResetStyle] = useState(false);
   const btnClasses = `${inter.className} ${styles.notify} ${
-    props.error && resetStyle ? styles.slidein : ""
-  }`;
+    props.message && resetStyle ? styles.slidein : ""
+  } ${props.type === "error" ? styles.error : styles.success}`;
 
   useEffect(() => {
     setResetStyle(true);
@@ -18,11 +18,11 @@ const Alert = (props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [props.error]);
+  }, [props.message]);
 
   return (
     <div className={btnClasses}>
-      <p>{props.error}</p>
+      <p>{props.message}</p>
     </div>
   );
 };
