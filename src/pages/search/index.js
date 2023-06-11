@@ -12,7 +12,7 @@ const PageContent = () => {
 
   return (
     <div className={styles.container}>
-      <Alert error={error} />
+      <Alert message={error} type="error" />
       <div className={styles.panel}>
         <SearchBox />
         <Categories />

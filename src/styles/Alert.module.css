@@ -1,13 +1,20 @@
 .notify {
   color: white;
-  background-color: #b6002c;
   padding: 0.5rem 1rem;
   z-index: 101;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  width: max-content;
+  white-space: nowrap;
   position: fixed;
   transform: translate(-50%);
   top: -100%;
   left: 50%;
+}
+.error {
+  background-color: #b6002c;
+}
+.success {
+  background-color: #23a447;
 }
 
 .slidein {

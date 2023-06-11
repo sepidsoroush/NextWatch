@@ -1,7 +1,6 @@
 .settings {
   display: block;
   box-sizing: border-box;
-
   border: 1px solid rgba(227, 227, 227, 1);
   border-radius: 8px;
   overflow: hidden;
@@ -21,7 +20,7 @@
 }
 
 .btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   color: #000;
   width: 100%;
@@ -34,4 +33,23 @@
 .btn:hover,
 .active {
   background-color: #ebebeb;
+}
+@media (max-width: 600px) {
+  .settings {
+    margin: 0.5rem auto;
+  }
+  .settings h4 {
+    font-weight: 400;
+    padding: 5px;
+    font-size: 1rem;
+  }
+  .filters {
+    display: flex;
+    flex-direction: row;
+  }
+  .btn {
+    display: block;
+    padding: 5px 10px;
+    width: 5.5rem;
+  }
 }

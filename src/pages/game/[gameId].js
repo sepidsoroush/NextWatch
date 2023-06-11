@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 const MovieDetail = () => {
   const router = useRouter();
-  const { movieId } = router.query;
-  const { isLoading, searchedMovies: item } = useFetch(`&i=${movieId}`);
+  const { gameId } = router.query;
+  const { isLoading, searchedMovies: item } = useFetch(`&i=${gameId}`);
 
   return (
     <div className={`${styles.body} ${inter.className}`}>

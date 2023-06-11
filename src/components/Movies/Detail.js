@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "@/styles/Movie.module.css";
-import Bookmark from "@/components/Movies/Bookmark";
+import Bookmark from "@/components/UI/Bookmark";
 import { FaAward, FaStar, FaFilm } from "react-icons/fa";
 import { Inter } from "next/font/google";
 
@@ -24,13 +24,19 @@ const DetailInfo = (props) => {
 
   return (
     <div className={`${styles.main} ${inter.className}`}>
-      <img
-        style={
-          item.Poster === "N/A" ? { width: "240px", height: "320px" } : null
-        }
-        src={item.Poster === "N/A" ? url : item.Poster}
-        alt={item.Title}
-      />
+      <div className={styles.poster}>
+        <img
+          style={
+            item.Poster === "N/A" ? { width: "240px", height: "320px" } : null
+          }
+          src={item.Poster === "N/A" ? url : item.Poster}
+          alt={item.Title}
+        />
+        <div className={styles.mobileBookmark}>
+          <Bookmark info={item} />
+        </div>
+      </div>
+
       <div className={styles.right}>
         <div className={styles.header}>
           <h1 className={styles.title}>{item.Title}</h1>
@@ -38,10 +44,10 @@ const DetailInfo = (props) => {
             {item.Type} • {item.Year} • {item.Rated} • {item.Runtime}
           </p>
         </div>
-        <div>
+        <div className={styles.genre}>
           {item.Genre &&
             item.Genre.split(", ").map((element) => {
-              return <span className={styles.genre}>{element}</span>;
+              return <span key={element}>{element}</span>;
             })}
         </div>
         <div>
@@ -95,6 +101,8 @@ const DetailInfo = (props) => {
             </div>
           )}
         </div>
+      </div>
+      <div className={styles.bookmark}>
         <Bookmark info={item} />
       </div>
     </div>

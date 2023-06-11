@@ -7,6 +7,7 @@ import Card from "@/components/Movies/Card";
 import { FaArrowLeft } from "react-icons/fa";
 import { BsBookmarkPlusFill } from "react-icons/bs";
 import { Inter } from "next/font/google";
+import Button from "@/components/UI/Button";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,13 +37,10 @@ const Watchlist = () => {
           <Link href="/series">Browse Popular TV Shows</Link>
         </div>
       )}
-
-      <div className={styles.backContainer} onClick={() => router.back()}>
-        <div className={styles.backButton}>
-          <FaArrowLeft className={styles.icon} />
-          <p>Back</p>
-        </div>
-      </div>
+      <Button onClick={() => router.back()}>
+        <FaArrowLeft />
+        <span>Back</span>
+      </Button>
     </div>
   );
 };
