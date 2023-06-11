@@ -1,0 +1,50 @@
+.container {
+  margin: 1rem 0;
+}
+.container h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.rowContainer {
+  display: flex;
+  gap: 1rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+  padding: 1rem 0;
+}
+.rowContainer li {
+  min-width: 12rem;
+}
+
+.scrollbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns button {
+  color: white;
+  background-color: #373737;
+  padding: 5px;
+  font-size: 1.1rem;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+.btns {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.btns button:hover {
+  background-color: black;
+}
+@media (max-width: 600px) {
+  .rowContainer li {
+    min-width: 10rem;
+  }
+}

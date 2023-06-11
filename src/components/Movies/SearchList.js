@@ -7,7 +7,7 @@ const SearchList = (props) => {
       {props.searchResult && (
         <ul className={styles.grid}>
           {props.searchResult.map((item) => (
-            <li key={item.id}>
+            <li key={item.imdbID}>
               <Card info={item} />
             </li>
           ))}

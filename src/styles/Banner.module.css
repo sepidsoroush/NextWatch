@@ -1,0 +1,58 @@
+.main {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  height: 20rem;
+  overflow: hidden;
+}
+.sidetext {
+  width: 50%;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 11rem;
+  background-color: #e9e9e9;
+}
+.sidetext h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.sidetext p {
+  font-size: 1.5rem;
+}
+
+.image {
+  width: 50%;
+  text-align: end;
+  background-color: #e9e9e9;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .sidetext {
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        rgba(3, 37, 65, 0.8) 0%,
+        rgba(3, 37, 65, 0) 100%
+      ),
+      url("../assests/Hero.jpeg");
+    color: white;
+    padding: 0 5rem;
+  }
+  .sidetext p {
+    margin: 1rem 0;
+  }
+  .image {
+    display: none;
+  }
+}

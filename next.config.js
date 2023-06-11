@@ -5,13 +5,8 @@ const nextConfig = {
     API_KEY: process.env.API_KEY,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "m.media-amazon.com",
-        port: "",
-      },
-    ],
+    domains: ["m.media-amazon.com", "upload.wikimedia.org"],
+    formats: ["image/avif", "image/webp"],
   },
 };
 
