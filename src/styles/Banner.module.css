@@ -47,7 +47,7 @@
       ),
       url("../assests/HeroMobile.jpeg");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 
     color: white;
     padding: 0 5rem;
