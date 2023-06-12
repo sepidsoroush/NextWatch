@@ -1,11 +1,11 @@
-# 🎥 next-search-movies
+# 🎥 Movie Database
 
 - This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 - This project is using [OMDb API](https://www.omdbapi.com/)
 - [Live Demo](https://next-search-movies-h2dj.vercel.app/)
 
 ### Features
-- These application was built using React Hooks (useState, useContext, useEffects, ...), API, Axios, React icons, etc.
+- These application was built using Next.js, React Hooks (useState, useContext, useEffects), API, Axios, React icons, etc.
 - Custom hook (useFetch) for fetch data from API
 - Global context for watchlist
 - Categories component to filter search results based on type (movies, TV series, games)
@@ -20,9 +20,13 @@
 
 - [ ] Authentication
 - [ ] Dark/light mode toggle
+- [x] Searchbar
+- [x] Loading
 - [x] Bookmark
 - [x] Watchlist
-- [x] Searchbar
+- [x] Filter categories
+- [x] Pagination
 - [x] Notifications
+- [x] Top Picks
 - [x] Movie Detail page
 - [x] Home page
