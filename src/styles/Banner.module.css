@@ -45,7 +45,10 @@
         rgba(3, 37, 65, 0.8) 0%,
         rgba(3, 37, 65, 0) 100%
       ),
-      url("../assests/Hero.jpeg");
+      url("../assests/HeroMobile.jpeg");
+    background-repeat: no-repeat;
+    background-size: auto;
+
     color: white;
     padding: 0 5rem;
   }
