@@ -9,7 +9,7 @@
 .rowContainer {
   display: flex;
   gap: 1rem;
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
   position: relative;
@@ -46,5 +46,6 @@
 @media (max-width: 600px) {
   .rowContainer li {
     min-width: 10rem;
+    overflow-x: scroll;
   }
 }

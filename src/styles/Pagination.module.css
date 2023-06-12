@@ -13,6 +13,7 @@
   margin: 0 1px;
   cursor: pointer;
   padding: 0 5px;
+  color: black;
 }
 .numbers {
   width: 24px;
@@ -35,6 +36,7 @@
   padding: 0 5px;
   background-color: transparent;
   cursor: pointer;
+  color: black;
 }
 .ellipsis:hover {
   color: #f5c518;
