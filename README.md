@@ -4,7 +4,7 @@
 - This project is using [OMDb API](https://www.omdbapi.com/)
 - [Live Demo](https://moviedatabase-swart.vercel.app/)
 
-### Features
+## Features
 - These application was built using Next.js, React Hooks (useState, useContext, useEffects), API, Axios, React icons, etc.
 - Custom hook (useFetch) for fetch data from API
 - Global context for watchlist
@@ -30,3 +30,26 @@
 - [x] Top Picks
 - [x] Movie Detail page
 - [x] Home page
+
+
+## 📸 Screenshots of project:
+
+<h3 align='center'>Home Page 🏠</h3>
+
+<div align='center'>
+<img src='https://github.com/sepidsoroush/next-search-movies/assets/105380339/e3d2f0d8-1cd0-4381-9de4-a131beb570d9'/>
+</div>
+<br>
+<br>
+<h3 align='center'>Search 🔍</h3>
+
+<div align='center'>
+<img src='https://github.com/sepidsoroush/next-search-movies/assets/105380339/ffce3536-819f-4086-bcac-3876c663e774'/>
+
+<br>
+<br>
+<h3 align='center'>Watchlist 🎥</h3>
+
+<div align='center'>
+<img src='https://github.com/sepidsoroush/next-search-movies/assets/105380339/7251770a-0ff3-4f08-a8ad-dd300669d647'/>
+</div>
