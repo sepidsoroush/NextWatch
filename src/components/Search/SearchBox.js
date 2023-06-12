@@ -29,6 +29,7 @@ const SearchBox = () => {
       <input
         className={styles.input}
         type="text"
+        name="search"
         placeholder="Search ..."
         ref={titleInputRef}
         required
