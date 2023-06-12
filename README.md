@@ -2,7 +2,7 @@
 
 - This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 - This project is using [OMDb API](https://www.omdbapi.com/)
-- [Live Demo](https://next-search-movies-h2dj.vercel.app/)
+- [Live Demo](https://moviedatabase-swart.vercel.app/)
 
 ### Features
 - These application was built using Next.js, React Hooks (useState, useContext, useEffects), API, Axios, React icons, etc.
