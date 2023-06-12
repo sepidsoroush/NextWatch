@@ -96,7 +96,7 @@ const DetailInfo = (props) => {
               {item.Ratings.length > 0 &&
                 item.Ratings.map((element) => {
                   return (
-                    <p>
+                    <p key={element.Source}>
                       {element.Source}: <span>{element.Value}</span>
                     </p>
                   );
