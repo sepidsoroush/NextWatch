@@ -33,6 +33,7 @@ const Card = (props) => {
             alt={title}
             width={500}
             height={500}
+            priority
           />
           <div className={styles.content}>
             <span className={styles.title}>{updatedTitle}</span>

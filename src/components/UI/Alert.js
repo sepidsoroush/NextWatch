@@ -9,6 +9,7 @@ const Alert = (props) => {
   const btnClasses = `${inter.className} ${styles.notify} ${
     props.message && resetStyle ? styles.slidein : ""
   } ${props.type === "error" ? styles.error : styles.success}`;
+  console.log(props.message);
 
   useEffect(() => {
     setResetStyle(true);

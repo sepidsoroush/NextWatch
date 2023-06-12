@@ -15,7 +15,7 @@ const Banner = ({ title, text, img }) => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src={img} alt="banner" />
+        <Image src={img} alt="banner" width={500} height={500} priority />
       </div>
     </div>
   );

@@ -34,6 +34,7 @@ const DetailInfo = (props) => {
           alt={item.Title}
           width={500}
           height={500}
+          priority
         />
         <div className={styles.mobileBookmark}>
           <Bookmark info={item} />
