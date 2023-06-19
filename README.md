@@ -5,8 +5,8 @@
 - [Live Demo](https://moviedatabase-swart.vercel.app/)
 
 ## Features
-- These application was built using Next.js, React Hooks (useState, useContext, useEffects), API, Axios, React icons, etc.
-- Custom hook (useFetch) for fetch data from API
+- This application was built using Next.js, React Hooks (useState, useContext, useEffects), API, Axios, React icons, etc.
+- Custom hook (useFetch) for fetching data from API
 - Global context for watchlist
 - Categories component to filter search results based on type (movies, TV series, games)
 - Dynamic Routes with `next-router`
@@ -16,11 +16,11 @@
 
 ## Components
 > **Warning**
-> This is work in progress. I'm building this in public.
+> This is a work in progress. I'm building this in public.
 
 - [ ] Authentication
 - [ ] Dark/light mode toggle
-- [x] Searchbar
+- [x] Search bar
 - [x] Loading
 - [x] Bookmark
 - [x] Watchlist
@@ -32,7 +32,7 @@
 - [x] Home page
 
 
-## 📸 Screenshots of project:
+## 📸 Screenshots of the project:
 
 <h3 align='center'>Home Page 🏠</h3>
 
