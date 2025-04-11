@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
-import {getFirestore} from 'firebase/firestore'
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBO6g8GoyNCKehJQ9WcpRB9uQdPJR1Ptpg",
-  authDomain: "movie-database-21e06.firebaseapp.com",
-  projectId: "movie-database-21e06",
-  storageBucket: "movie-database-21e06.appspot.com",
-  messagingSenderId: "784377809374",
-  appId: "1:784377809374:web:128cebd587ce0199feb54f"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGE_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 export const app = initializeApp(firebaseConfig);
